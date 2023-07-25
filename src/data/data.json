@@ -1,0 +1,56 @@
+{
+  "Banner": [
+  {
+    "title": "City bikes",
+    "paragraph": "The new city bike season has started. Registration and season passes are now available!"
+  }
+],
+
+"BuyPass":[
+  {
+    "title":"Buy a pass ",
+    "paragraph1":"The city bike season starts on 1 April and ends on 31 October.",
+    "paragraph2":"Please note that the bike system in place in Helsinki and Espoo is different from the system used in Vantaa and you cannot mix bikes from the two systems.",
+    "paragraph3":"The pass for the whole season for Helsinki and Espoo costs EUR 35, for Vantaa EUR 30",
+    "text":"Start by selecting area"
+  }
+
+],
+
+"Tickets":[
+  {
+    "title":"Helsinki and Espoo",
+    "paragraph1":"Welcome to use city bikes! Find the closest available bike and hop on! The bikes are available from the beginning of April until the end of October.",
+    "paragraph2":"All city bike stations will not necessarily be in use at the start of the season.The bike stations are installed as soon as the snow has melted."
+  }
+
+],
+
+  "TicketsPrice": [
+    {
+      "title": "Season",
+      "text": "Until 31 October 2023, unlimited number of up to 30-minute rides, 1 bike",
+      "price":"35 €",
+      "paragraph":"+ potential extra charges"
+    },
+    {
+      "title": "Week",
+      "text": "Today + 6 days, unlimited number of up to 30-minute rides, 1 bike",
+      "price":"10 €",
+      "paragraph":"+ potential extra charges"
+    },
+    {
+      "title": "Day",
+      "text": "24h, unlimited number of up to 30-minute rides, 1-4 bikes, €5/bike",
+      "price":"5 €",
+      "paragraph":"+ potential extra charges"
+    },
+    {
+      "title": "Auto-renewing subscription",
+      "text": "Unlimited number of 30-minute journeys for 30 days. The subscription is valid until further notice.",
+      "price":"7 €",
+      "paragraph":"+ potential extra charges"
+    }
+  ]
+  
+}

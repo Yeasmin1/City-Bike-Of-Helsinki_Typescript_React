@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "city_bike",
+  "name": "city_bike_of_helsinki",
   "icons": [
     {
       "src": "favicon.ico",
