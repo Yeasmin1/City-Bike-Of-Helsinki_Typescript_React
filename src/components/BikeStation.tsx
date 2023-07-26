@@ -27,30 +27,22 @@ const BikeStation: React.FC= () => {
       if (error || !data) {
         return <div>ERROR</div>;
       }
-    console.log("test")
-    console.log(data) 
     
     const options = data.bikeRentalStations.map((d:any) => ({
         "value" : d.id,
         "label" : d.name
       }))
-    console.log(options)
 
    const handleChange= (e:any) => {
-    console.log("handleTest")
-       console.log(e.label); 
        setStationName(e.label)
-       console.log("nextPlace")
-       console.log(stationName)
    }
-
     return( 
         <div> 
         <div id="bikeStation">
             <div className="container">
                 <div className="row">
                     <div className='col-xs-12 col-md-6 '>
-                        <h3>Bike station near you</h3>
+                        <h3>Search nearby bike stations</h3>
                         <hr/>
                         
                         <div className="searchFormStyle">

@@ -8,7 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 const httpLink = createHttpLink({ 
-    uri: 'https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
+    uri: `${process.env.REACT_APP_DIGITRANSIT_GRAPHQL_URI}`,
   });
 
 const authLink = setContext((_, { headers }) => {
@@ -16,7 +16,7 @@ const authLink = setContext((_, { headers }) => {
     return {
       headers: {
         ...headers,
-        "digitransit-subscription-key" : "7cc70ce5935540e2bd78eb21de30fa92",
+        "digitransit-subscription-key" :`${process.env.REACT_APP_DIGITRANSIT_KEY}`,
       }
     }
   });
@@ -38,7 +38,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

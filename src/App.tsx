@@ -12,17 +12,12 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import * as Jsondata from "./data/data.json";
 
-export const scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1000,
-  speedAsDuration: true,
-});
 
 interface jsonDataInterfaceType{
   Banner: BannerInterface[],
   BuyPass:BuyPassInterface[],
   Tickets:TicketsInterface[],
   TicketsPrice: TicketsPriceInterface[]
-
 }
 interface BuyPassInterface  {
   title: string,
@@ -52,14 +47,12 @@ const App= () => {
   useEffect(() => {
     setPageDataInfo(Jsondata);
   }, []);
-  console.log (PageDataInfo)
-  
 
   return (
     <BrowserRouter> 
       <Navigation />
       <Routes>
-        <Route path="/home" element={<div><Banner data={PageDataInfo.Banner} /><BuyPass data={PageDataInfo.BuyPass} /></div>} />
+        <Route path="/" element={<div><Banner data={PageDataInfo.Banner} /><BuyPass data={PageDataInfo.BuyPass} /></div>} />
         <Route path="/bikeStation" element={<div><BikeStation /></div>} />  
         <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.Tickets} /><TicketsPrice data={PageDataInfo.TicketsPrice}/></div>} /> 
       </Routes>

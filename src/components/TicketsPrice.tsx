@@ -1,3 +1,4 @@
+
 const TicketsPrice = (props:any) => {
     return (
       <div id='tprice' className='text-center'>
@@ -9,6 +10,9 @@ const TicketsPrice = (props:any) => {
             {props.data
               ? props.data.map((d:any, i:any) => (
                   <div key={`${d.name}-${i}`} className='col-md-3 col-sm-6'>
+
+                             
+
                     <div className='thumbnail'>
                       {' '}
                       <div className='caption'>

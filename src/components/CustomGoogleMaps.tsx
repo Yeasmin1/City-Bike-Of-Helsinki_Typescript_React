@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import * as React from "react";
 import { useState} from 'react';
 
+const GooggleApiKey = `${process.env.REACT_APP_GOOGLE_MAP_API_KEY}`
+const GoogleAPiMapUrl = `${process.env.REACT_APP_GOOGLE_MAP_API_URL}`
+
 interface PlaceProps{
   stationNameInMap:string;
 }
@@ -11,10 +14,8 @@ const CustomGoogleMaps: React.FC<PlaceProps>= ({stationNameInMap}) =>{
     const  googleMapRef = useRef<HTMLDivElement>(null);
     let googleMap:any;
     useEffect(() => {
-      console.log("inside");
-      console.log(placeName);
       const googleMapScript = document.createElement("script");
-      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAb4j3ef4VaLo3m0q9R5VM9Gif45B5mckA&libraries=places`;
+      googleMapScript.src = `${GoogleAPiMapUrl}`+"?"+"key="+`${GooggleApiKey}`+"&libraries=places";
       googleMapScript.async = true;
       window.document.body.appendChild(googleMapScript);
       googleMapScript.addEventListener("load", () => {
@@ -25,10 +26,6 @@ const CustomGoogleMaps: React.FC<PlaceProps>= ({stationNameInMap}) =>{
     if (placeName!= stationNameInMap){
       setPlaceName(stationNameInMap);
     }
-   
-    console.log(stationNameInMap)
-    console.log(placeName)
-    console.log(googleMapRef.current);
 
     const createGoogleMap = (coordinates:any) => {
       googleMap = new window.google.maps.Map(googleMapRef.current!, {  //The non-null assertion operator (!.), also called the exclamation mark operator, indicates to the compiler that we are sure that the value we want to access is not null or undefined.

@@ -16,7 +16,7 @@ const Navigation = () => {
                         <span className='icon-bar'></span>{' '}
                         <span className='icon-bar'></span>{' '}
                     </button>
-                    <Link className='navbar-brand page-scroll' to={{pathname:"/home"}}>
+                    <Link className='navbar-brand page-scroll' to={{pathname:"/"}}>
                         CBH
                     </Link>
                 </div>
@@ -37,7 +37,7 @@ const Navigation = () => {
                             Tickets and fare
                         </Link>
                     </li>
-                    
+
                     <li>
                     <a href='#travelling' className='page-scroll'>
                         Travelling
@@ -51,7 +51,7 @@ const Navigation = () => {
                     </li>
                     <li>
                     <a href='#cbh' className='page-scroll'>
-                        CBH
+                        About us
                     </a>
                     </li>
                 </ul>
