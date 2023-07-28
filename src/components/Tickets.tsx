@@ -1,3 +1,4 @@
+
 const Tickets = (props:any) => {
     return( 
        <div> 
@@ -5,23 +6,26 @@ const Tickets = (props:any) => {
             <div className="container">
                 <div className="row">
                    <div className="col-xs-12 col-md-6">
-                        {" "}
-                        <img src="img/bike.jpg" className="img-responsive" alt="" />{" "}
+                        
+                        <img src="img/bike.jpg" className="img-responsive buyTickets-img" alt="" />
                     </div>
                     <div className="col-xs-12 col-md-6">
                         <div className="buyTickets-text">
-                           {props.data
-                                ? props.data.map((d:any, i:any) => (
-                                    <div key={`${d.name}-${i}`} >
-                                            <h3>{d.title}</h3>
-                                            <p>{d.paragraph1}</p> 
-                                            <p>{d.paragraph2}</p> 
+                           
+                                {props.data
+                                        ? props.data.map((d:any, i:any) => (
+                                            <div key={`${d.name}-${i}`} >
+                                                    <h3>{d.title}</h3>
+                                                    <p>{d.paragraph1}</p> 
+                                                    <p>{d.paragraph2}</p> 
 
-                                    </div>   
+                                            </div>   
                                   
                                     ))
                                 : 'loading'}
+                           
                         </div>
+
                     </div>
                 </div>
             </div>

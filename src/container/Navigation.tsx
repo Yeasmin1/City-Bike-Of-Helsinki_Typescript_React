@@ -28,13 +28,13 @@ const Navigation = () => {
                 <ul className='nav navbar-nav navbar-right'>
                     <li>
                         <Link to={{pathname:"/bikeStation"}}>
-                                Bike stations
+                                Bike Stations
                         </Link>
                     </li>
 
                     <li>
                     <Link to={{pathname:"/ticketsInfo"}}>
-                            Tickets and fare
+                            Tickets and Fare
                         </Link>
                     </li>
 
@@ -46,12 +46,12 @@ const Navigation = () => {
                     
                     <li>
                     <a href='#customer' className='page-scroll'>
-                        Customer service
+                        Customer Service
                     </a>
                     </li>
                     <li>
                     <a href='#cbh' className='page-scroll'>
-                        About us
+                        About Us
                     </a>
                     </li>
                 </ul>

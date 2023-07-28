@@ -7,6 +7,7 @@ html {
   font-weight: 400;
   width: 100% !important;
   height: 100% !important;
+
 }
 
 h2 {
@@ -79,13 +80,13 @@ hr {
   font-size: 24px;
   font-weight: 700;
   color: #ffffff;
-  text-transform: uppercase;
+  text-transform: none;
 }
 #menu.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   padding: 8px 2px;
   border-radius: 0;
@@ -98,7 +99,7 @@ hr {
   bottom: -1px;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, #e6e7ee 0%, #5ca9fb 100%);
   content: "";
   transition: width 0.2s;
 }
@@ -134,13 +135,12 @@ hr {
 .navbar-default .navbar-toggle:hover > .icon-bar {
   background-color: #608dfd;
 }
-
+/* btn Section */
 .btn-custom {
   font-family: "Raleway", sans-serif;
   text-transform: none;
   color: #fff;
   background-color: #5ca9fb;
-  background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
   padding: 14px 14px;
   letter-spacing: 1px;
   margin: 0;
@@ -157,7 +157,7 @@ hr {
 .btn-custom.active {
   color: #fff;
   background-image: none;
-  background-color: #6372ff;
+  background-color: #333;
 }
 .btn:active,
 .btn.active {
@@ -178,46 +178,44 @@ a:focus,
 }
 
 /* banner Section */
-
 #banner {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   
 }
-#banner-text{
-  color:  rgb(0, 0, 0);;
+#banner .banner-title{
+  font-size: 30px;
+  font-weight: 600;
   text-align: center;
-  line-break: auto;
-}
+  color: #333; 
 
-#banner.banner-img {
-  display: flex;
-  height: 100vh;
-  width: 100vw; 
-  align-items: center;
-  justify-content: center;
-  
+}
+#banner .banner-text{
+  color:   #333;
+  font-size: 15px;
+  text-align: center;
+}
+#banner .banner-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   
 }
-
 
 /* buyTickets Section */
 #buyTickets {
-  padding: 100px 0;
-  background:  rgb(255, 255, 255);
+  padding-top: 100px ;
+  padding-bottom: 100px;
+  background: rgb(255, 255, 255);
 }
 #buyTickets h3 {
   font-size: 22px;
 }
-  
-#buyTickets img {
-  display: flex;
- 
+#buyTickets .buyTickets-img {
+  display: block;
   width: 520px;
   margin-top: 10px;
-  background: #fff;
-  border-right: 0;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 #buyTickets p {
   line-height: 24px;
@@ -226,25 +224,14 @@ a:focus,
 
 /* buyPass Section */
 #buyPass {
-  padding: 100px 0;
+  padding: 80px ;
   background:  rgb(244, 243, 243);
 }
-#buyPass h3 {
-  font-size: 22px;
-  
-}
-#buyPass h2 {
-  position: relative;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-}
 
-#buyPassimg {
+#buyPass .buyPass-img {
+  display: block;
   width: 520px;
   margin-top: 10px;
-  background: #fff;
-  border-right: 0;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 #buyPass p {
   line-height: 24px;
@@ -257,38 +244,25 @@ a:focus,
 }
 #bikeStation .searchFormStyle{
  padding-top: 12 ;
- padding-bottom: 15px;;
- 
+ padding-bottom: 15px;
 }
 
 /* tprice Section */
 #tprice {
-  padding: 10px ;
-  background: rgb(244, 243, 243);
+padding-top: 10px;
+padding-bottom: 60px;
+background: rgb(244, 243, 243);
  
 }
+
+#tprice .section-title{
+  padding: 20px 0px;
+}
+
 #tprice h4 {
   margin: 5px 0;
 }
 
-#tprice .thumbnail {
-  background:  rgb(255, 255, 255);
-  border: 0;
-}
-#tprice .thumbnail .caption {
-  padding: 0;
-  color: #888;
-}
-#tprice .thumbnail .caption.h1 {
-  color: #000000;
-}
-
-hr {
-  height: 4px;;
-  margin-left: 15px;
-  margin-bottom:-3px;
-  
-}
 
 /* Contact Section */
 #contact {

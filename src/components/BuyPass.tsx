@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const BuyPass= (props:any) => {
     return(
         <div id="buyPass">
@@ -5,7 +6,7 @@ const BuyPass= (props:any) => {
                 <div className="row">
                     <div className="col-xs-12 col-md-6">
                         {" "}
-                        <img src="img/map.webp" className="img-responsive" alt="" />{" "}
+                        <img src="img/city-map.jpg" className="img-responsive buyPass-img" alt="" />{" "}
                     </div>
                     <div className="col-xs-12 col-md-6">
                         <div className="buyPass-text">
@@ -20,9 +21,9 @@ const BuyPass= (props:any) => {
                                         </div>
                                     ))
                                 : 'loading'}
-                            <div className='btn btn-custom btn-lg page-scroll'>
+                            <Link to="/ticketsInfo" className='btn btn-custom btn-lg page-scroll'>
                                 Helsinki and Espoo
-                            </div> 
+                            </Link> 
                         </div>
 
                     </div>
