@@ -3,7 +3,7 @@ import {ROUTE} from '../graphql/queries/ROUTE'
 import { useQuery } from '@apollo/react-hooks'
 import React from 'react';
 import { useState } from 'react';
-import CustomGoogleMaps from './CustomGoogleMaps';
+import StationsInGoogleMap from './StationsInGoogleMap';
 
 const containerStyle = {
     width: '4000px',
@@ -51,7 +51,7 @@ const BikeStation: React.FC= () => {
                         </div>
 
                     <div className='col-xs-12 col-md-6'>
-                        <CustomGoogleMaps stationNameInMap={stationName}/>
+                        <StationsInGoogleMap stationNameInMap={stationName}/>
                     </div>  
             </div>
             </div>

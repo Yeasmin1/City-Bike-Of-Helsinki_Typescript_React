@@ -26,7 +26,8 @@ const Navigation = () => {
                 id='bs-example-navbar-collapse-1'
                 >
                 <ul className='nav navbar-nav navbar-right'>
-                    <li>
+                    
+                <li>
                         <Link to={{pathname:"/bikeStation"}}>
                                 Bike Stations
                         </Link>

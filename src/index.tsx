@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from '@apollo/react-hooks'	//baseconfig
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { Loader } from "@googlemaps/js-api-loader"
+
 
 const httpLink = createHttpLink({ 
     uri: `${process.env.REACT_APP_DIGITRANSIT_GRAPHQL_URI}`,
