@@ -1,8 +1,6 @@
+import React, { useEffect, useRef, ReactElement } from "react";
+import { useState} from 'react';
 
-  import React, { useEffect, useRef, ReactElement } from "react";
-  import { useState} from 'react';
-
- 
  interface mapElements{
   stationNameInMap:string;
   }
@@ -11,7 +9,6 @@ const StationsInGoogleMap:React.FC<mapElements>= ({stationNameInMap}) => {
 
   const[placeName, setPlaceName]= useState(stationNameInMap)
   const ref = React.useRef(null);
-    console.log(ref)
     let googleMap:any;
   
   useEffect(() => {
@@ -19,6 +16,7 @@ const StationsInGoogleMap:React.FC<mapElements>= ({stationNameInMap}) => {
    
   }
   );
+
   const createGoogleMap = (coordinates:any) => {
     googleMap=new window.google.maps.Map(ref.current!,{  //The non-null assertion operator (!.), also called the exclamation mark operator, indicates to the compiler that we are sure that the value we want to access is not null or undefined.
       center: {
@@ -27,13 +25,12 @@ const StationsInGoogleMap:React.FC<mapElements>= ({stationNameInMap}) => {
       },
       zoom:15,
     });
-  
-
   };
   
   if (placeName!= stationNameInMap){
     setPlaceName(stationNameInMap);
   }
+
   const getLatLng = ()  => {
     let lat:any | null, lng:any| null, placeId:any| null;
     new window.google.maps.Geocoder().geocode(
@@ -60,15 +57,13 @@ const StationsInGoogleMap:React.FC<mapElements>= ({stationNameInMap}) => {
   };
 
   return(
-
       <>
         <div 
           id="map"
           ref={ref}  
           style={{ width: "600px", height: "600px" }} />
         </>
-    ); 
-        
+    );       
 
 };
 

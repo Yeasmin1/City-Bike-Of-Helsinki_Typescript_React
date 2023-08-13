@@ -71,7 +71,7 @@ hr {
   transition: all 0.8s;
 }
 #menu.navbar-default {
-  background-color: #5ca9fb ;
+  background-color:  #488bd2 ;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
@@ -140,7 +140,7 @@ hr {
   font-family: "Raleway", sans-serif;
   text-transform: none;
   color: #fff;
-  background-color: #5ca9fb;
+  background-color: #488bd2;
   padding: 14px 14px;
   letter-spacing: 1px;
   margin: 0;
@@ -245,10 +245,24 @@ a:focus,
 /* Bike station Section */
 #bikeStation {
   padding: 100px 0;
+  background: rgb(244, 243, 243);
+}
+#bikeStation .hrStyle {
+  border: 1px solid#777;;
 }
 #bikeStation .searchFormStyle{
  padding-top: 12 ;
  padding-bottom: 15px;
+}
+#bikeStation .h4{
+  font-size: 15px;
+  
+}
+
+#bikeStation .thumbnail {
+  font-size: 12px;;
+  background:  #ededed;
+  border: 0;
 }
 
 /* tprice Section */
@@ -271,10 +285,9 @@ background: rgb(244, 243, 243);
 /* Contact Section */
 #contact {
   padding: 70px 0 70px;
-  color: rgba(255, 255, 255, 0.75);
-  background-color: #5ca9fb ;
+  color:  #488bd2 ;
   border-color: rgba(231, 231, 231, 0);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  
 }
 
 #contact .contact-item {

@@ -1,4 +1,3 @@
-import Card from "react-bootstrap/Card";
 const TicketsPrice = (props:any) => {
     return (
       <div id='tprice' className='text-center'>

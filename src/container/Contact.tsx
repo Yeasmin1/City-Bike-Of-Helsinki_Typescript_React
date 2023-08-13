@@ -13,20 +13,7 @@ const Contact = () => {
                   </div>
                   <div className='row'>
                     <div className='contact-item'>
-                    <h5>Sales and service points</h5>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Lost and found</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='col-md-3'>
-                  <div className='row'>
-                    <div className='contact-item'>
-                      <h5>Services now</h5>
+                    <h5>Submit fault report</h5>
                     </div>
                   </div>
                   <div className='row'>
@@ -34,9 +21,22 @@ const Contact = () => {
                     <h5>Give feedback</h5>
                     </div>
                   </div>
+                </div>
+
+                <div className='col-md-3'>
                   <div className='row'>
                     <div className='contact-item'>
-                    <h5>Tickets and fares</h5>
+                      <h5>Terms of use, Helsinki and Espoo</h5>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='contact-item'>
+                    <h5>Privacy statement, helsinki and Espoo</h5>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='contact-item'>
+                    <h5>Terms of use, Vantaa</h5>
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@ const Contact = () => {
                 <div className='col-md-3'>
                   <div className='row'>
                     <div className='contact-item'>
-                      <h5>Companies and organizations</h5>
+                      <h5>Privacy statement, vantaa</h5>
                     </div>
                   </div>
                   <div className='row'>
