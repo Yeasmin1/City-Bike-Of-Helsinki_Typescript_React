@@ -13,13 +13,12 @@ import * as Jsondata from "./data/data.json";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { useEffect,  ReactElement } from "react";
 
-
-
 interface jsonDataInterfaceType{
   Banner: BannerInterface[],
   BuyPass:BuyPassInterface[],
   Tickets:TicketsInterface[],
-  TicketsPrice: TicketsPriceInterface[]
+  TicketsPrice: TicketsPriceInterface[],
+  Contact:ContactInterface[]
 }
 interface BuyPassInterface  {
   title: string,
@@ -28,6 +27,8 @@ interface BuyPassInterface  {
   paragraph3:string,
   text:string
 };
+
+
 interface TicketsPriceInterface  {
   title: string,
   text: string,
@@ -43,12 +44,22 @@ interface TicketsInterface  {
   paragraph1:string,
   paragraph2:string
 };
+interface ContactInterface  {
+  header1:string,
+  header2:string,
+  header3:string,
+  header4:string,
+  header5:string,
+  header6:string,
+  header7:string,
+  header8:string,
+  header9:string,
+  header10:string
+};
 
 const App= () => {
- 
-  
 
-  const [PageDataInfo, setPageDataInfo] = useState<jsonDataInterfaceType>({Banner:[],BuyPass:[],Tickets:[],TicketsPrice:[]});
+  const [PageDataInfo, setPageDataInfo] = useState<jsonDataInterfaceType>({Banner:[],BuyPass:[],Tickets:[],TicketsPrice:[],Contact:[]});
   useEffect(() => {
     setPageDataInfo(Jsondata);
   }, []);
@@ -67,12 +78,12 @@ const App= () => {
       <Navigation />
       <Wrapper apiKey={`${process.env.REACT_APP_GOOGLE_MAP_API_KEY}`} render={render}>
         <Routes>
-          <Route path="/" element={<div><Banner data={PageDataInfo.Banner} /><BuyPass data={PageDataInfo.BuyPass} /></div>} />
-          <Route path="/bikeStation" element={<div><BikeStation /></div>} />   
-          <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.Tickets} /><TicketsPrice data={PageDataInfo.TicketsPrice}/></div>} /> 
+          <Route path="/" element={<div><Banner data={PageDataInfo.Banner} /><BuyPass data={PageDataInfo} /></div>} />
+          <Route path="/bikeStation" element={<div><BikeStation/></div>} />   
+          <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.Tickets} /><TicketsPrice data={PageDataInfo}/></div>} /> 
         </Routes>
       </Wrapper>
-      <Contact/>
+      <Contact data={PageDataInfo}/>
     </BrowserRouter>
   );
 }

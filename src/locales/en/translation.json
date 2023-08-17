@@ -1,0 +1,89 @@
+{
+  
+  "home": "Home",
+  "bikeStation": " Bike Stations",
+  "ticketsInfo": "Tickets and Fare",
+  "travelling":"Travelling",
+  "customer":" Customer Service",
+  "cbh":"About Us",
+  "nearbyBikeStationName":"Search nearby bike stations",
+  "bikeStationName":"Bike station name:",
+  "availableBikestationNumber":"Bikes available at the station right now: ",
+
+  
+
+  "bannerTitle": "City bikes",
+  "bannerParagraph": "The new city bike season has started. Registration and season passes are now available!",
+
+
+  "buyPassTitle":"Buy a pass ",
+  "buyPassParagraph1":"The city bike season starts on 1 April and ends on 31 October.",
+  "buyPassParagraph2":"Please note that the bike system in place in Helsinki and Espoo is different from the system used in Vantaa and you cannot mix bikes from the two systems.",
+  "buyPassParagraph3":"The pass for the whole season for Helsinki and Espoo costs EUR 35, for Vantaa EUR 30",
+  "buyPassText":"Start by selecting area",
+
+  "BuyPassButtonText":"Helsinki and Espoo",
+
+
+  "TicketsTitle":"Helsinki and Espoo",
+  "TicketsParagraph1":"Welcome to use city bikes! Find the closest available bike and hop on! The bikes are available from the beginning of April until the end of October.",
+  "TicketsParagraph2":"All city bike stations will not necessarily be in use at the start of the season.The bike stations are installed as soon as the snow has melted.",
+
+
+  
+  "TicketsPriceHeaderTitle":"Buy a Pass",
+
+  "TicketsPricetitle-0": "Season",
+  "TicketsPricetext-0": "Until 31 October 2023, unlimited number of up to 30-minute rides, 1 bike",
+  "TicketsPriceprice-0":"35 €",
+  "TicketsPriceparagraph-0":"+ potential extra charges",
+  "TicketsPriceButton-0":"Select",
+
+
+  "TicketsPricetitle-1": "Week",
+  "TicketsPricetext-1": "Today + 6 days, unlimited number of up to 30-minute rides, 1 bike",
+  "TicketsPriceprice-1":"10 €",
+  "TicketsPriceparagraph-1":"+ potential extra charges",
+  "TicketsPriceButton-1":"Select",
+
+
+  "TicketsPricetitle-2": "Day",
+  "TicketsPricetext-2": "24h, unlimited number of up to 30-minute rides, 1-4 bikes, €5/bike",
+  "TicketsPriceprice-2":"5 €",
+  "TicketsPriceparagraph-2":"+ potential extra charges",
+  "TicketsPriceButton-2":"Select",
+
+
+  "TicketsPricetitle-3": "Auto-renewing subscription",
+  "TicketsPriceext-3": "Unlimited number of 30-minute journeys for 30 days. The subscription is valid until further notice.",
+  "TicketsPriceprice-3":"7 €",
+  "TicketsPriceparagraph-3":"+ potential extra charges",
+  "TicketsPriceButton-3":"Select",
+
+
+  "Contactheader1":"Customer service",
+  "Contactheader2":"Submit fault report",
+  "Contactheader3":"Give feedback",
+  "Contactheader4":"Terms of use, Helsinki and Espoo",
+  "Contactheader5":"Privacy statement, helsinki and Espoo",
+  "Contactheader6":"Terms of use, Vantaa",
+  "Contactheader7":"Privacy statement, vantaa",
+  "Contactheader8":"Top up CBH card",
+  "Contactheader9":"Transport accessibility",
+  "Contactheader10":"CBH app",
+
+
+    
+      
+  "CP1":"Copyright CBH",
+  "CP2":"Contacts",
+  "CP3":"Privacy policy",
+  "CP4":"Cookies preferences",
+  "CP5":"Terms of Use",
+  "CP6":"Accessibility statement"
+      
+    
+
+
+  
+}

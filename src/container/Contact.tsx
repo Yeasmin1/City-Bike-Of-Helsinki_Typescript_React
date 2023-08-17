@@ -1,71 +1,80 @@
-
-const Contact = () => {
+import { useTranslation } from "react-i18next";
+const Contact = (props:any) => {
+  const { i18n, t } = useTranslation();
   return(
     <div>
         <div id='contact'>
           <div className='container d-flex'>
             <div className='col-md-12'>
-                <div className='col-md-3'>
-                  <div className='row'>
-                    <div className='contact-item'>
-                      <h5>Customer service</h5>
+              {props.data.Contact
+                  ? props.data.Contact.map((d:any, i:any) => (
+                      <div key={`${d.name}-${i}`} >               
+                                       
+                  <div className='col-md-3'>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      
+                        <h5>{t(d.header1)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5> {t(d.header2)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5>{t(d.header3)}</h5>
+                      </div>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Submit fault report</h5>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Give feedback</h5>
-                    </div>
-                  </div>
-                </div>
 
-                <div className='col-md-3'>
-                  <div className='row'>
-                    <div className='contact-item'>
-                      <h5>Terms of use, Helsinki and Espoo</h5>
+                  <div className='col-md-3'>
+                    <div className='row'>
+                      <div className='contact-item'>
+                        <h5> {t(d.header4)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5>{t(d.header5)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5>{t(d.header6)}</h5>
+                      </div>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Privacy statement, helsinki and Espoo</h5>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Terms of use, Vantaa</h5>
-                    </div>
-                  </div>
-                </div>
 
-                <div className='col-md-3'>
-                  <div className='row'>
-                    <div className='contact-item'>
-                      <h5>Privacy statement, vantaa</h5>
+                  <div className='col-md-3'>
+                    <div className='row'>
+                      <div className='contact-item'>
+                        <h5> {t(d.header7)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5> {t(d.header8)}</h5>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='contact-item'>
+                      <h5>{t(d.header9)}</h5>
+                      </div>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Top up CBH card</h5>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className='contact-item'>
-                    <h5>Transport accessibility</h5>
-                    </div>
-                  </div>
-                </div>
 
-                <div className='col-md-3'>
-                  <div className='row'>
-                    <div className='contact-item '>
-                      <h5>CBH app</h5>
+                  <div className='col-md-3'>
+                    <div className='row'>
+                      <div className='contact-item '>
+                        <h5>{t(d.header10)}</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                  </div>
+                ))
+            : 'loading'}
               </div>
           
             </div>
@@ -74,24 +83,33 @@ const Contact = () => {
         <div id='footer'>
           <div className='container'>
             <div className='d-flex flex-row '>
-                <div className='col-md-2'>
-                <p>&copy; Copyright CBH</p>   
+            {props.data.ContactFooter
+                  ? props.data.ContactFooter.map((d:any, i:any) => (
+                    <div key={`${d.name}-${i}`} >
+                          
+                          <div className='col-md-2'>
+                
+                <p>&copy; {t(d.p1)}</p>   
                 </div>
                 <div className='col-md-2'>
-                <p>Contacts</p>   
+                <p>{t(d.p2)}</p>   
                 </div>
                 <div className='col-md-2'>
-                <p>Privacy policy</p>   
+                <p>{t(d.p3)}</p>   
                 </div>
                 <div className='col-md-2'>
-                <p>Cookies preferences</p>   
+                <p>{t(d.p4)}</p>   
                 </div>
                 <div className='col-md-2'>
-                <p>Terms of Use</p>   
+                <p>{t(d.p5)}</p>   
                 </div>
                 <div className='col-md-2'>
-                <p>Accessibility statement</p>   
+                <p>{t(d.p6)}</p>   
                 </div>
+               </div>
+                  ))
+                : 'loading'}
+                
               </div>
             </div>
         </div>

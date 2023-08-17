@@ -4,8 +4,10 @@ import { useQuery } from '@apollo/react-hooks'
 import { useState } from 'react';
 import StationsInGoogleMap from './StationsInGoogleMap';
 import BikesAvailableAtStation from './BikesAvailableAtStation';
+import { useTranslation } from "react-i18next";
 
-const BikeStation = () => {
+const BikeStation = (props:any) => {
+  const { i18n, t } = useTranslation();
     const[stationName, setStationName]= useState ("Helsinki")
     const[stationId, setStationId]= useState ("070")
 
@@ -29,20 +31,23 @@ const BikeStation = () => {
        setStationId(e.value)
    }
     return( 
-        <div> 
+      
+        <div>   
+          
         <div id="bikeStation">
             <div className="container">
                 <div className="row">
                     <div className='col-xs-12 col-md-6 '>
-                        <h3>Search nearby bike stations</h3>
+                        <h3>{t("nearbyBikeStationName")}</h3>
                         <hr className='hrStyle'/>
                         
                         <div className="searchFormStyle">
                         <Select options={options} onChange={handleChange} />
                         </div>
                         <div className='thumbnail '>
-                              <h4>Bike Station Name: {stationName}</h4>
-                              <BikesAvailableAtStation stationIdInBox={stationId}/>
+                              <h4>{t("bikeStationName")} {stationName}</h4>
+                              <BikesAvailableAtStation  stationIdInBox={stationId} />
+              
                            
                           </div>   
                         </div>
@@ -53,8 +58,12 @@ const BikeStation = () => {
             </div>
             </div>
         </div>
-
+       
+       
+     
     </div>
+    
+    
             );
     }
 

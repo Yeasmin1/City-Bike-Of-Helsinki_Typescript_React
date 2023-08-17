@@ -1,0 +1,81 @@
+{
+  "home":  "kotisivulle",
+  "bikeStation": " Pyöräasemat",
+  "ticketsInfo": "Liput ja hinnat",
+  "travelling":"Matkustaminen",
+  "customer":" Asiakaspalvelu",
+  "cbh":"sivu meistä", 
+  "nearbyBikeStationName":"Etsi läheisiä pyöräasemia",
+  "bikeStationName":"Pyöräaseman nimi:",
+  "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt: ",
+  
+
+  "bannerTitle": "Kaupunkipyörät",
+  "bannerParagraph": "Uusi kaupunkipyöräkausi on alkanut. Ilmoittautuminen ja kausikortit ovat nyt saatavilla!",
+  
+  
+  "buyPassTitle":"Osta lippu ",
+  "buyPassParagraph1":"Kaupunkipyöräkausi alkaa 1. huhtikuuta ja päättyy 31. lokakuuta.",
+  "buyPassParagraph2":"Huomioithan, että Helsingissä ja Espoossa käytössä oleva pyöräjärjestelmä eroaa Vantaalla käytössä olevasta järjestelmästä, eikä näiden kahden järjestelmän pyöriä voi sekoittaa.",
+  "buyPassParagraph3":"Koko kausikortti Helsinkiin ja Espooseen maksaa 35 euroa, Vantaalle 30 euroa",
+  "buyPassText":"Aloita valitsemalla alue",
+
+  "BuyPassButtonText":"Helsinki ja Espoo",
+   
+
+  "TicketsTitle":"Helsinki ja Espoo",
+  "TicketsParagraph1":"Tervetuloa käyttämään kaupunkipyöriä! Etsi lähin vapaana oleva pyörä ja hyppää kyytiin! Pyörät ovat saatavilla huhtikuun alusta lokakuun loppuun.",
+  "TicketsParagraph2":"Kaikki kaupunkipyöräasemat eivät välttämättä ole käytössä kauden alkaessa. Pyöräasemat asennetaan heti kun lumi on sulanut.",
+ 
+  
+
+ 
+  "TicketsPriceHeaderTitle":"osta lippu",
+  
+  "TicketsPricetitle-0": "Kausi",
+  "TicketsPricetext-0": "31.10.2023 asti rajoittamattomasti jopa 30 minuutin ajoa, 1 pyörä",
+  "TicketsPriceprice-0":"35 €",
+  "TicketsPriceparagraph-0":"+ mahdolliset lisäkulut",
+  "TicketsPriceButton-0":"Valitse",
+
+  "TicketsPricetitle-1": "Viikko",
+  "TicketsPricetext-1": "Tänään + 6 päivää, rajoittamaton määrä jopa 30 minuutin ajoa, 1 pyörä",
+  "TicketsPriceprice-1":"10 €",
+  "TicketsPriceparagraph-1":"+ mahdolliset lisäkulut",
+  "TicketsPriceButton-1":"Valitse",
+
+  "TicketsPricetitle-2": "päivä",
+  "TicketsPricetext-2": "24h, rajaton määrä ajoja 30min asti, 1-4 pyörää, 5€/pyörä",
+  "TicketsPriceprice-2":"5 €",
+  "TicketsPriceparagraph-2":"+ mahdolliset lisäkulut",
+  "TicketsPriceButton-2":"Valitse",
+
+  "TicketsPricetitle-3": "Automaattisesti uusiutuva tilaus",
+  "TicketsPriceext-3": "Rajoittamaton määrä 30 minuutin matkoja 30 päivän ajan. Tilaus on voimassa toistaiseksi.",
+  "TicketsPriceprice-3":"7 €",
+  "TicketsPriceparagraph-3":"+ mahdolliset lisäkulut",
+  "TicketsPriceButton-3":"Valitse",
+
+  "Contactheader1":"Asiakaspalvelu",
+  "Contactheader2":"Lähetä vikailmoitus",
+  "Contactheader3":"Antaa palautetta",
+  "Contactheader4":"Käyttöehdot, Helsinki ja Espoo",
+  "Contactheader5":"Tietosuojaseloste, Helsinki ja Espoo",
+  "Contactheader6":"Käyttöehdot, Vantaa",
+  "Contactheader7":"Tietosuojalausunto, vanta",
+  "Contactheader8":"Täytä CBH-kortti",
+  "Contactheader9":"Liikenneyhteydet",
+  "Contactheader10":"CBH sovellus",
+
+
+      
+  "CP1":"Tekijänoikeus CBH",
+  "CP2":"Yhteystiedot",
+  "CP3":"Tietosuojakäytäntö",
+  "CP4":"Evästeiden asetukset",
+  "CP5":"Käyttöehdot",
+  "CP6":"saavutettavuuslausunto"
+  
+    
+  }
+  

@@ -1,5 +1,6 @@
-
+import { useTranslation } from "react-i18next";
 const Tickets = (props:any) => {
+    const { i18n, t } = useTranslation();
     return( 
        <div> 
           <div id="buyTickets">
@@ -15,9 +16,9 @@ const Tickets = (props:any) => {
                                 {props.data
                                         ? props.data.map((d:any, i:any) => (
                                             <div key={`${d.name}-${i}`} >
-                                                    <h3>{d.title}</h3>
-                                                    <p>{d.paragraph1}</p> 
-                                                    <p>{d.paragraph2}</p> 
+                                                    <h3>{t(d.title)}</h3>
+                                                    <p>{t(d.paragraph1)}</p> 
+                                                    <p>{t(d.paragraph2)}</p> 
 
                                             </div>   
                                   

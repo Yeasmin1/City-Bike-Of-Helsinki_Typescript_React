@@ -1,56 +1,119 @@
 {
   "Banner": [
   {
-    "title": "City bikes",
-    "paragraph": "The new city bike season has started. Registration and season passes are now available!"
+    "title": "bannerTitle",
+    "paragraph": "bannerParagraph"
   }
 ],
 
 "BuyPass":[
   {
-    "title":"Buy a pass ",
-    "paragraph1":"The city bike season starts on 1 April and ends on 31 October.",
-    "paragraph2":"Please note that the bike system in place in Helsinki and Espoo is different from the system used in Vantaa and you cannot mix bikes from the two systems.",
-    "paragraph3":"The pass for the whole season for Helsinki and Espoo costs EUR 35, for Vantaa EUR 30",
-    "text":"Start by selecting area"
+    "title":"buyPassTitle",
+    "paragraph1": "buyPassParagraph1",
+    "paragraph2":"buyPassParagraph2",
+    "paragraph3": "buyPassParagraph3",
+    "text":"buyPassText"
+  }
+
+],
+
+"BuyPassButton":[
+  {
+    "button":"BuyPassButtonText"
+  }
+
+],
+
+"BikeStation":[
+  {
+    "title":"buyPassTitle",
+    "paragraph1": "buyPassParagraph1",
+    "paragraph2":"buyPassParagraph2",
+    "paragraph3": "buyPassParagraph3",
+    "text":"buyPassText"
   }
 
 ],
 
 "Tickets":[
   {
-    "title":"Helsinki and Espoo",
-    "paragraph1":"Welcome to use city bikes! Find the closest available bike and hop on! The bikes are available from the beginning of April until the end of October.",
-    "paragraph2":"All city bike stations will not necessarily be in use at the start of the season.The bike stations are installed as soon as the snow has melted."
+    "title": "TicketsTitle",
+    "paragraph1":"TicketsParagraph1",
+    "paragraph2": "TicketsParagraph2"
+  }
+
+],
+
+"TicketsPriceHeader":[
+  {
+    "title":"TicketsPriceHeaderTitle"
+    
   }
 
 ],
 
   "TicketsPrice": [
+  
     {
-      "title": "Season",
-      "text": "Until 31 October 2023, unlimited number of up to 30-minute rides, 1 bike",
-      "price":"35 €",
-      "paragraph":"+ potential extra charges"
+      "title": "TicketsPricetitle-0",
+      "text":  "TicketsPricetext-0",
+      "price": "TicketsPriceprice-0",
+      "paragraph":"TicketsPriceparagraph-0",
+      "button":"TicketsPriceButton-0"
     },
     {
-      "title": "Week",
-      "text": "Today + 6 days, unlimited number of up to 30-minute rides, 1 bike",
-      "price":"10 €",
-      "paragraph":"+ potential extra charges"
+      "title":  "TicketsPricetitle-1",
+      "text": "TicketsPricetext-1",
+      "price":"TicketsPriceprice-1",
+      "paragraph":"TicketsPriceparagraph-1",
+      "button": "TicketsPriceButton-1"
     },
     {
-      "title": "Day",
-      "text": "24h, unlimited number of up to 30-minute rides, 1-4 bikes, €5/bike",
-      "price":"5 €",
-      "paragraph":"+ potential extra charges"
+      "title":  "TicketsPricetitle-2",
+      "text": "TicketsPricetext-2",
+      "price": "TicketsPriceprice-2",
+      "paragraph": "TicketsPriceparagraph-2",
+      "button":"TicketsPriceButton-2"
     },
     {
-      "title": "Auto-renewing subscription",
-      "text": "Unlimited number of 30-minute journeys for 30 days. The subscription is valid until further notice.",
-      "price":"7 €",
-      "paragraph":"+ potential extra charges"
+      "title":"TicketsPricetitle-3",
+      "text":  "TicketsPriceext-3",
+      "price":"TicketsPriceprice-3",
+      "paragraph": "TicketsPriceparagraph-3",
+      "button":"TicketsPriceButton-3"
     }
+  ],
+  "Contact":[
+    {
+      
+      "header1":"Contactheader1",
+      "header2":"Contactheader2",
+      "header3":"Contactheader3",
+      "header4":"Contactheader4",
+      "header5":"Contactheader5",
+      "header6":"Contactheader6",
+      "header7":"Contactheader7",
+      "header8":"Contactheader8",
+      "header9":"Contactheader9",
+      "header10":"Contactheader10"
+
+      
+    }
+  
+  ],
+
+  "ContactFooter":[
+    {
+      
+      "p1":"CP1",
+      "p2": "CP2",
+      "p3":"CP3",
+      "p4":"CP4",
+      "p5":"CP5",
+      "p6":"CP6"
+      
+    }
+  
   ]
   
 }

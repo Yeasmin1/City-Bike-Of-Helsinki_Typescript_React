@@ -1,11 +1,13 @@
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 import {AVAILABLEBIKES} from '../graphql/queries/ROUTE'
+import { useTranslation } from "react-i18next";
 
 interface stationIdDataType{
     stationIdInBox:string;
     }
 const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) => {
+    const { i18n, t } = useTranslation();
    
     const[stationIdForBikes, setStationIdForBikes]= useState (stationIdInBox)
     const { data,error,loading }  = useQuery(
@@ -27,7 +29,7 @@ const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) =>
 
     return( 
        <div >      
-         <h4>Bikes available at the station right now: {data.bikeRentalStation.bikesAvailable}</h4> 
+         <h4>{t("availableBikestationNumber")} {data.bikeRentalStation.bikesAvailable}</h4> 
        </div>
             );
     }
