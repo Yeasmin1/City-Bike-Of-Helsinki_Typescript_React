@@ -7,7 +7,7 @@ import BikesAvailableAtStation from './BikesAvailableAtStation';
 import { useTranslation } from "react-i18next";
 
 const BikeStation = (props:any) => {
-  const { i18n, t } = useTranslation();
+  const {t} = useTranslation();
     const[stationName, setStationName]= useState ("Helsinki")
     const[stationId, setStationId]= useState ("070")
 
@@ -44,12 +44,11 @@ const BikeStation = (props:any) => {
                         <div className="searchFormStyle">
                         <Select options={options} onChange={handleChange} />
                         </div>
-                        <div className='thumbnail '>
-                              <h4>{t("bikeStationName")} {stationName}</h4>
+                        <div >
+                              {t("bikeStationName")} 
+                              <h4>{stationName}</h4>
                               <BikesAvailableAtStation  stationIdInBox={stationId} />
-              
-                           
-                          </div>   
+                        </div>   
                         </div>
 
                     <div className='col-xs-12 col-md-6'>
@@ -58,13 +57,9 @@ const BikeStation = (props:any) => {
             </div>
             </div>
         </div>
-       
-       
      
     </div>
-    
-    
-            );
+      );
     }
 
 export default BikeStation;

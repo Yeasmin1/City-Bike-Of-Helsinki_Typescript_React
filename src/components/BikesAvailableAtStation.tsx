@@ -7,7 +7,7 @@ interface stationIdDataType{
     stationIdInBox:string;
     }
 const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) => {
-    const { i18n, t } = useTranslation();
+    const {t} = useTranslation();
    
     const[stationIdForBikes, setStationIdForBikes]= useState (stationIdInBox)
     const { data,error,loading }  = useQuery(
@@ -23,13 +23,14 @@ const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) =>
         return <div>ERROR</div>;
       }
   
-  if (stationIdForBikes!= stationIdInBox){
+  if (stationIdForBikes!== stationIdInBox){
     setStationIdForBikes(stationIdInBox);
   }
 
     return( 
-       <div >      
-         <h4>{t("availableBikestationNumber")} {data.bikeRentalStation.bikesAvailable}</h4> 
+       <div className='name-title'>      
+        {t("availableBikestationNumber")} 
+           <h4 >{data.bikeRentalStation.bikesAvailable}</h4>
        </div>
             );
     }

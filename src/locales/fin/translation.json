@@ -4,10 +4,10 @@
   "ticketsInfo": "Liput ja hinnat",
   "travelling":"Matkustaminen",
   "customer":" Asiakaspalvelu",
-  "cbh":"sivu meistä", 
+  "cbh":"Sivu meistä", 
   "nearbyBikeStationName":"Etsi läheisiä pyöräasemia",
-  "bikeStationName":"Pyöräaseman nimi:",
-  "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt: ",
+  "bikeStationName":"Pyöräaseman nimi :",
+  "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt : ",
   
 
   "bannerTitle": "Kaupunkipyörät",
@@ -30,7 +30,7 @@
   
 
  
-  "TicketsPriceHeaderTitle":"osta lippu",
+  "TicketsPriceHeaderTitle":"Osta lippu",
   
   "TicketsPricetitle-0": "Kausi",
   "TicketsPricetext-0": "31.10.2023 asti rajoittamattomasti jopa 30 minuutin ajoa, 1 pyörä",
@@ -59,8 +59,8 @@
   "Contactheader1":"Asiakaspalvelu",
   "Contactheader2":"Lähetä vikailmoitus",
   "Contactheader3":"Antaa palautetta",
-  "Contactheader4":"Käyttöehdot, Helsinki ja Espoo",
-  "Contactheader5":"Tietosuojaseloste, Helsinki ja Espoo",
+  "Contactheader4":"Käyttöehdot, Helsinki ",
+  "Contactheader5":"Tietosuojaseloste, Helsinki",
   "Contactheader6":"Käyttöehdot, Vantaa",
   "Contactheader7":"Tietosuojalausunto, vanta",
   "Contactheader8":"Täytä CBH-kortti",

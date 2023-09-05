@@ -12,7 +12,15 @@ import { useState } from 'react';
 import * as Jsondata from "./data/data.json";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { useEffect,  ReactElement } from "react";
+import { useMediaQuery } from 'react-responsive'
+import LoginForm from './components/LoginForm';
 
+interface Profile{
+  picture:string;
+  name: string;
+  email: string;
+
+ }
 interface jsonDataInterfaceType{
   Banner: BannerInterface[],
   BuyPass:BuyPassInterface[],
@@ -60,10 +68,10 @@ interface ContactInterface  {
 const App= () => {
 
   const [PageDataInfo, setPageDataInfo] = useState<jsonDataInterfaceType>({Banner:[],BuyPass:[],Tickets:[],TicketsPrice:[],Contact:[]});
+  const[loginProfile, setLoginProfile] = useState<Profile | null>(null);
   useEffect(() => {
     setPageDataInfo(Jsondata);
   }, []);
-
 
   const render = (status:Status):ReactElement => {
     if (status === Status.LOADING) return <h3>{status} ..</h3>;
@@ -75,10 +83,11 @@ const App= () => {
   
   return (
     <BrowserRouter> 
-      <Navigation />
+      <Navigation loginProfile={loginProfile}/>
       <Wrapper apiKey={`${process.env.REACT_APP_GOOGLE_MAP_API_KEY}`} render={render}>
         <Routes>
           <Route path="/" element={<div><Banner data={PageDataInfo.Banner} /><BuyPass data={PageDataInfo} /></div>} />
+          <Route path="/loginForm" element={<div><LoginForm setLoginProfile={setLoginProfile}/></div>}/> 
           <Route path="/bikeStation" element={<div><BikeStation/></div>} />   
           <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.Tickets} /><TicketsPrice data={PageDataInfo}/></div>} /> 
         </Routes>

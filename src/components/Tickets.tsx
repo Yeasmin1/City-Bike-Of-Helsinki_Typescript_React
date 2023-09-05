@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+
 const Tickets = (props:any) => {
     const { i18n, t } = useTranslation();
     return( 

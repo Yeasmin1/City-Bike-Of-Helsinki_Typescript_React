@@ -7,8 +7,8 @@
   "customer":" Customer Service",
   "cbh":"About Us",
   "nearbyBikeStationName":"Search nearby bike stations",
-  "bikeStationName":"Bike station name:",
-  "availableBikestationNumber":"Bikes available at the station right now: ",
+  "bikeStationName":"Bike station name :",
+  "availableBikestationNumber":"Bikes available at the station right now : ",
 
   
 
@@ -60,14 +60,13 @@
   "TicketsPriceparagraph-3":"+ potential extra charges",
   "TicketsPriceButton-3":"Select",
 
-
   "Contactheader1":"Customer service",
   "Contactheader2":"Submit fault report",
   "Contactheader3":"Give feedback",
-  "Contactheader4":"Terms of use, Helsinki and Espoo",
-  "Contactheader5":"Privacy statement, helsinki and Espoo",
+  "Contactheader4":"Terms of use, Helsinki",
+  "Contactheader5":"Privacy statement, Helsinki",
   "Contactheader6":"Terms of use, Vantaa",
-  "Contactheader7":"Privacy statement, vantaa",
+  "Contactheader7":"Privacy statement,vantaa",
   "Contactheader8":"Top up CBH card",
   "Contactheader9":"Transport accessibility",
   "Contactheader10":"CBH app",

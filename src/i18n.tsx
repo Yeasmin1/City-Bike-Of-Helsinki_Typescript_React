@@ -19,7 +19,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources, // resources are important to load translations for the languages.
-    lng: "it", // It acts as default language. When the site loads, content is shown in this language.  
+    lng: "en", // It acts as default language. When the site loads, content is shown in this language.  
     debug: true,
     fallbackLng: "en", // use de if selected language is not available
     interpolation: {

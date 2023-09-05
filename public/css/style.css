@@ -1,3 +1,4 @@
+
 body,
 html {
   font-family: "Open Sans", sans-serif;
@@ -64,18 +65,132 @@ ol {
 hr {
   background: #6d6f6e;
 }
+/* Login */
 
-/* Navigation */
-#menu {
-  padding: 15px;
-  transition: all 0.8s;
+.login {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
 }
+
+#googleLogin{
+  font-size: 14px;
+  color:#333;
+  
+}
+
+/* login form style*/
+.Auth-background-section {
+  background-color: rgb(244, 243, 243);
+  
+
+}
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Auth-form {
+  width: 420px;
+  height: 450px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+p {
+  font-size: 14px;
+  font-weight: 600;
+  color:rgb(34, 34, 34);
+}
+.custom-google-button{
+ justify-content: center;
+ align-items: center;
+}
+/* First navigation */
+.navbarFirst {
+  height: 40px;
+  padding: 8px 0px 30px 0px;
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 60px;
+}
+
+.btn-custom-button{
+  color: #488bd2 ;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  background: none;
+  margin: auto;
+  border-style: double;
+  
+  
+  
+}
+.profile-custom{
+  border-style: double;
+  
+}
+.pr {
+  padding-right: 5px;
+  display: block;
+  
+}
+.ml-1 {
+  margin-left: 10px !important;
+}
+
+/* Second Navigation */
+
+#menu {
+  padding: 3px;
+  transition: all 0.8s;  
+  
+}
+
 #menu.navbar-default {
   background-color:  #488bd2 ;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-#menu a.navbar-brand {
+#menu .navbar-brand {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -184,7 +299,7 @@ a:focus,
   
 }
 #banner .banner-title{
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
   text-align: center;
   color: #333; 
@@ -244,26 +359,18 @@ a:focus,
 }
 /* Bike station Section */
 #bikeStation {
-  padding: 100px 0;
+  padding: 20px 0;
   background: rgb(244, 243, 243);
 }
 #bikeStation .hrStyle {
   border: 1px solid#777;;
 }
+
 #bikeStation .searchFormStyle{
  padding-top: 12 ;
  padding-bottom: 15px;
 }
-#bikeStation .h4{
-  font-size: 15px;
-  
-}
-
-#bikeStation .thumbnail {
-  font-size: 12px;;
-  background:  #ededed;
-  border: 0;
-}
+ 
 
 /* tprice Section */
 #tprice {
@@ -304,7 +411,7 @@ background: rgb(244, 243, 243);
 
 /* Footer Section*/
 #footer {
-  padding: 20px 0;
+  padding: 10px 0;
   background:  #488bd2
  
 }
