@@ -13,6 +13,9 @@
 # production
 /build
 
+# generated
+/src/__generated__
+
 # misc
 .DS_Store
 .env.local
