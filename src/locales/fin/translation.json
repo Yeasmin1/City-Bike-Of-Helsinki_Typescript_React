@@ -8,11 +8,19 @@
   "nearbyBikeStationName":"Etsi läheisiä pyöräasemia",
   "bikeStationName":"Pyöräaseman nimi :",
   "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt : ",
-  
 
+  "loginFormTitle":"Kirjaudu sisään",
+  "loginFormLabel1":"Sähköpostiosoite",
+  "loginFormLabel2":"Salasana",
+  "loginFormButtonText1":"Kirjaudu sisään",
+  "loginFormParagraph1":"Unohditko salasanasi?",
+  "loginFormParagraph2":"TAI",
+  "loginFormButtonText2":"Kirjaudu sisään Googlella",
+  "loginFormEmailPlaceholder":"Syötä sähköposti",
+  "loginFormPasswordPlaceholder":"Kirjoita salasana",
+  
   "bannerTitle": "Kaupunkipyörät",
   "bannerParagraph": "Uusi kaupunkipyöräkausi on alkanut. Ilmoittautuminen ja kausikortit ovat nyt saatavilla!",
-  
   
   "buyPassTitle":"Osta lippu ",
   "buyPassParagraph1":"Kaupunkipyöräkausi alkaa 1. huhtikuuta ja päättyy 31. lokakuuta.",
@@ -22,13 +30,9 @@
 
   "BuyPassButtonText":"Helsinki ja Espoo",
    
-
   "TicketsTitle":"Helsinki ja Espoo",
-  "TicketsParagraph1":"Tervetuloa käyttämään kaupunkipyöriä! Etsi lähin vapaana oleva pyörä ja hyppää kyytiin! Pyörät ovat saatavilla huhtikuun alusta lokakuun loppuun.",
+  "TicketsParagraph1":"Tervetuloa käyttämään kaupunkipyöriä. Etsi lähin vapaana oleva pyörä ja hyppää kyytiin! Pyörät ovat saatavilla huhtikuun alusta lokakuun loppuun.",
   "TicketsParagraph2":"Kaikki kaupunkipyöräasemat eivät välttämättä ole käytössä kauden alkaessa. Pyöräasemat asennetaan heti kun lumi on sulanut.",
- 
-  
-
  
   "TicketsPriceHeaderTitle":"Osta lippu",
   
@@ -67,15 +71,12 @@
   "Contactheader9":"Liikenneyhteydet",
   "Contactheader10":"CBH sovellus",
 
-
-      
   "CP1":"Tekijänoikeus CBH",
   "CP2":"Yhteystiedot",
   "CP3":"Tietosuojakäytäntö",
   "CP4":"Evästeiden asetukset",
   "CP5":"Käyttöehdot",
   "CP6":"saavutettavuuslausunto"
-  
-    
+
   }
   

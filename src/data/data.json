@@ -1,119 +1,111 @@
 {
-  "Banner": [
-  {
-    "title": "bannerTitle",
-    "paragraph": "bannerParagraph"
-  }
-],
+  "LoginFormData": 
+    {
+      "title":"loginFormTitle" ,
+      "label1":"loginFormLabel1",
+      "label2":"loginFormLabel2",
+      "buttonText1":"loginFormButtonText1",
+      "paragraph1":"loginFormParagraph1",
+      "paragraph2":"loginFormParagraph2",
+      "buttonText2":"loginFormButtonText2",
+      "emailPlaceholder":"loginFormEmailPlaceholder",
+      "passwordPlaceholder":"loginFormPasswordPlaceholder"
+    },
 
-"BuyPass":[
-  {
-    "title":"buyPassTitle",
-    "paragraph1": "buyPassParagraph1",
-    "paragraph2":"buyPassParagraph2",
-    "paragraph3": "buyPassParagraph3",
-    "text":"buyPassText"
-  }
+  "BannerData": 
+    {
+      "title": "bannerTitle",
+      "paragraph": "bannerParagraph"
+    },
 
-],
-
-"BuyPassButton":[
-  {
-    "button":"BuyPassButtonText"
-  }
-
-],
+"BuyPassData":
+    {
+      "title":"buyPassTitle",
+      "paragraph1": "buyPassParagraph1",
+      "paragraph2":"buyPassParagraph2",
+      "paragraph3": "buyPassParagraph3",
+      "text":"buyPassText",
+      "button":"BuyPassButtonText"
+    },
 
 "BikeStation":[
-  {
-    "title":"buyPassTitle",
-    "paragraph1": "buyPassParagraph1",
-    "paragraph2":"buyPassParagraph2",
-    "paragraph3": "buyPassParagraph3",
-    "text":"buyPassText"
-  }
-
+    {
+      "title":"buyPassTitle",
+      "paragraph1": "buyPassParagraph1",
+      "paragraph2":"buyPassParagraph2",
+      "paragraph3": "buyPassParagraph3",
+      "text":"buyPassText"
+    }
 ],
 
-"Tickets":[
-  {
-    "title": "TicketsTitle",
-    "paragraph1":"TicketsParagraph1",
-    "paragraph2": "TicketsParagraph2"
-  }
-
-],
+"TicketsInformationData":
+    {
+      "title": "TicketsTitle",
+      "paragraph1":"TicketsParagraph1",
+      "paragraph2": "TicketsParagraph2"
+    },
 
 "TicketsPriceHeader":[
-  {
-    "title":"TicketsPriceHeaderTitle"
-    
-  }
-
+    {
+      "title":"TicketsPriceHeaderTitle" 
+    }
 ],
 
-  "TicketsPrice": [
-  
-    {
-      "title": "TicketsPricetitle-0",
-      "text":  "TicketsPricetext-0",
-      "price": "TicketsPriceprice-0",
-      "paragraph":"TicketsPriceparagraph-0",
-      "button":"TicketsPriceButton-0"
-    },
-    {
-      "title":  "TicketsPricetitle-1",
-      "text": "TicketsPricetext-1",
-      "price":"TicketsPriceprice-1",
-      "paragraph":"TicketsPriceparagraph-1",
-      "button": "TicketsPriceButton-1"
-    },
-    {
-      "title":  "TicketsPricetitle-2",
-      "text": "TicketsPricetext-2",
-      "price": "TicketsPriceprice-2",
-      "paragraph": "TicketsPriceparagraph-2",
-      "button":"TicketsPriceButton-2"
-    },
-    {
-      "title":"TicketsPricetitle-3",
-      "text":  "TicketsPriceext-3",
-      "price":"TicketsPriceprice-3",
-      "paragraph": "TicketsPriceparagraph-3",
-      "button":"TicketsPriceButton-3"
-    }
-  ],
-  "Contact":[
-    {
-      
-      "header1":"Contactheader1",
-      "header2":"Contactheader2",
-      "header3":"Contactheader3",
-      "header4":"Contactheader4",
-      "header5":"Contactheader5",
-      "header6":"Contactheader6",
-      "header7":"Contactheader7",
-      "header8":"Contactheader8",
-      "header9":"Contactheader9",
-      "header10":"Contactheader10"
+"TicketsPrice": [
+  {
+    "title": "TicketsPricetitle-0",
+    "text":  "TicketsPricetext-0",
+    "price": "TicketsPriceprice-0",
+    "paragraph":"TicketsPriceparagraph-0",
+    "button":"TicketsPriceButton-0"
+  },
+  {
+    "title":  "TicketsPricetitle-1",
+    "text": "TicketsPricetext-1",
+    "price":"TicketsPriceprice-1",
+    "paragraph":"TicketsPriceparagraph-1",
+    "button": "TicketsPriceButton-1"
+  },
+  {
+    "title":  "TicketsPricetitle-2",
+    "text": "TicketsPricetext-2",
+    "price": "TicketsPriceprice-2",
+    "paragraph": "TicketsPriceparagraph-2",
+    "button":"TicketsPriceButton-2"
+  },
+  {
+    "title":"TicketsPricetitle-3",
+    "text":  "TicketsPriceext-3",
+    "price":"TicketsPriceprice-3",
+    "paragraph": "TicketsPriceparagraph-3",
+    "button":"TicketsPriceButton-3"
+  }
+],
 
-      
-    }
-  
-  ],
+"Contact":[
+  {
+    "header1":"Contactheader1",
+    "header2":"Contactheader2",
+    "header3":"Contactheader3",
+    "header4":"Contactheader4",
+    "header5":"Contactheader5",
+    "header6":"Contactheader6",
+    "header7":"Contactheader7",
+    "header8":"Contactheader8",
+    "header9":"Contactheader9",
+    "header10":"Contactheader10" 
+  }
+],
 
-  "ContactFooter":[
-    {
-      
-      "p1":"CP1",
-      "p2": "CP2",
-      "p3":"CP3",
-      "p4":"CP4",
-      "p5":"CP5",
-      "p6":"CP6"
-      
-    }
-  
-  ]
+"ContactFooter":[
+  {
+    "p1":"CP1",
+    "p2": "CP2",
+    "p3":"CP3",
+    "p4":"CP4",
+    "p5":"CP5",
+    "p6":"CP6"
+  }
+]
   
 }

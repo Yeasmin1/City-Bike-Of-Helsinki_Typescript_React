@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { googleLogout} from '@react-oauth/google';
 import { BsPersonCircle } from 'react-icons/bs';
 import { LANGUAGES } from "./Language";
-import Dropdown from 'react-bootstrap/Dropdown';
 
 interface ProfileType{
     picture?: string;
@@ -44,7 +43,6 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
         navigate("/") ;
     };
     //TODO: error handling for googleLogout
-
     return(
         <div >
             <nav id="navbar-first">
@@ -72,17 +70,6 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                             {
                             loginProfile ? (
                                 <div>
-                                    {/*<Dropdown className='drop'>
-                                    <Dropdown.Toggle className='btn-custom-button' id="dropdown-basic">
-                                    {loginProfile.name} 
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu className='dropMenu'>
-                                        <Dropdown.Item  onClick={handleLogout} href="#/">Logout</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                       
-                                    </Dropdown>
-                                    */}
                                    <button className='btn-custom-button' onClick={handleOpen}>
                                         {loginProfile.name}   
                                     </button>  
