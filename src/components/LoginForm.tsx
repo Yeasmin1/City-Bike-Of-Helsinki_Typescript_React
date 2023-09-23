@@ -28,21 +28,30 @@ const LoginForm :React.FC<loginProfileInterface>= ({data, setLoginProfile}) => {
   const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
   const {t} = useTranslation();
-  //prevents submission of the form
+  
+  //Prevents submission of the form
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
-  const login = useGoogleLogin({
+  /*
+  Performs user authentication with React provided google login hook. After successful authentication
+  user's access token is stored
+  */
+  const login = useGoogleLogin({ 
     onSuccess: (userProfileResponse:any) => setUser(userProfileResponse),
     onError: (error) => console.log('Login Failed:', error)
   });
 
+  /*
+  Gets profile information for the authenticated user using the previously stored access token. 
+  Then, sets the profile information in a state variable.
+  */
   useEffect(
     () => {
       if (user) {
         axios
-          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+          .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
             headers: {
               Authorization: `Bearer ${user.access_token}`,
               Accept: 'application/json'
@@ -51,10 +60,9 @@ const LoginForm :React.FC<loginProfileInterface>= ({data, setLoginProfile}) => {
           .then((res) => {
             setLoginProfile(res.data);
             window.sessionStorage.setItem('userProfile',JSON.stringify(res.data));
-            //localStorage.setItem('token',res.data.access_token)
             navigate("/");
           })
-          .catch((err) => console.log(err));     //TODO: add error notification to the user
+          .catch((err) => console.log(err)); //TODO: add error notification to the user
       }
     },
     [ user, setLoginProfile ,navigate]

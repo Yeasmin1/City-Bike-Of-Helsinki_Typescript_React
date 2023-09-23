@@ -5,7 +5,7 @@
   "travelling":"Matkustaminen",
   "customer":" Asiakaspalvelu",
   "cbh":"Sivu meistä", 
-  "nearbyBikeStationName":"Etsi läheisiä pyöräasemia",
+  "nearbyBikeStationName":"Etsi pyöräasemat",
   "bikeStationName":"Pyöräaseman nimi :",
   "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt : ",
 
@@ -48,7 +48,7 @@
   "TicketsPriceparagraph-1":"+ mahdolliset lisäkulut",
   "TicketsPriceButton-1":"Valitse",
 
-  "TicketsPricetitle-2": "päivä",
+  "TicketsPricetitle-2": "Päivä",
   "TicketsPricetext-2": "24h, rajaton määrä ajoja 30min asti, 1-4 pyörää, 5€/pyörä",
   "TicketsPriceprice-2":"5 €",
   "TicketsPriceparagraph-2":"+ mahdolliset lisäkulut",

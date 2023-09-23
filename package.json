@@ -58,7 +58,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "compile": "graphql-codegen",
-    "watch": "graphql-codegen -w"
+    "watch": "graphql-codegen -w",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -87,6 +88,7 @@
     "@graphql-codegen/client-preset": "^4.1.0",
     "@types/google.maps": "^3.53.5",
     "@types/smooth-scroll": "^16.1.1",
+    "cypress": "^13.2.0",
     "typescript": "^5.1.6"
   }
 }

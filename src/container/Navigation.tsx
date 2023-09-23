@@ -70,13 +70,13 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                             {
                             loginProfile ? (
                                 <div>
-                                   <button className='btn-custom-button' onClick={handleOpen}>
+                                   <button id="profileNameButton" className='btn-custom-button' onClick={handleOpen}>
                                         {loginProfile.name}   
                                     </button>  
                                     {
                                     open ? (
                                         <div >
-                                        <button className='logout-button 'onClick={handleLogout}>
+                                        <button id="logoutButton" className='logout-button 'onClick={handleLogout}>
                                             Logout
                                         </button>
                                         </div>

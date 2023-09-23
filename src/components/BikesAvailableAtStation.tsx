@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"; //imported it in all the relevant component
 import {AVAILABLEBIKES} from '../graphql/queries/ROUTE';
 
 interface stationIdDataType{
@@ -9,7 +9,7 @@ interface stationIdDataType{
 
 const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) => {
   const[stationIdForBikes, setStationIdForBikes]= useState(stationIdInBox)
-  const {t} = useTranslation()
+  const {t} = useTranslation() 
 
   // useQuery hook uses apolloClient to recive data from Digitransit API
   const { data,error,loading }  = useQuery(

@@ -1,4 +1,5 @@
-import i18n from "i18next";
+// i18next is an internationalization framework. It provides translation context.
+import i18n from "i18next"; 
 
 import { initReactI18next } from "react-i18next";
 import i18nBackend from "i18next-http-backend";

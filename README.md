@@ -22,6 +22,11 @@ Runs the app in the development mode.
 
 Builds the app for production to the `build` folder.
 
+### `npm run cypress:open`
+
+Open the cypress window.
+
+
 ## To view live demo of This project
 
 A demo of this project is running at 
