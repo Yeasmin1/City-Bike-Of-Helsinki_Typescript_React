@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
 interface User {
   access_token:string
 }
@@ -29,7 +30,7 @@ const LoginForm :React.FC<loginProfileInterface>= ({data, setLoginProfile}) => {
   const navigate = useNavigate();
   const {t} = useTranslation();
   
-  //Prevents submission of the form
+  // Prevents submission of the form
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };

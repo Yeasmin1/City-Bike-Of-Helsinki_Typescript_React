@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+
 interface TicketsInterface{
     title: string,
     paragraph1:string,

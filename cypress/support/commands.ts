@@ -1,5 +1,3 @@
-import { exists } from "i18next"
-
 //Cypress.Commands.add() - use to add a custom command to use when writing tests
 Cypress.Commands.add('loginByGoogleApi', () => { 
     cy.session( 'Logging with Google',() => 

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { googleLogout} from '@react-oauth/google';
 import { BsPersonCircle } from 'react-icons/bs';
 import { LANGUAGES } from "./Language";
+import '../i18n';
 
 interface ProfileType{
     picture?: string;
@@ -12,15 +13,13 @@ interface ProfileType{
    }
    
 interface loginProfileType{
-   loginProfile: any | ProfileType;
+   loginProfile: null | ProfileType;
    setLoginProfile: any;
 }
-
 const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  => {
     const [open, setOpen] = useState(false);
     const {i18n, t} = useTranslation();
     const navigate = useNavigate();
-
 
     const handleClickLang = (e: React.MouseEvent<HTMLButtonElement>) => {
         const lang_code = e.currentTarget.value
@@ -43,8 +42,9 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
         navigate("/") ;
     };
     //TODO: error handling for googleLogout
+    //Make unique button id for language
     return(
-        <div >
+        <div id="navigation-page" >
             <nav id="navbar-first">
                 <div className="container">
                 <div className="nav-elements ">
@@ -55,12 +55,9 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                              because JSX elements directly inside a map() call always need key */
                             LANGUAGES.map(languageItem => 
                                 <Fragment key={languageItem.id}> 
-                            
-                                <button className='btn-custom-button ml-1' value={languageItem.code} onClick={handleClickLang}>
-                                    {languageItem.label}
-                                </button>
-
-                                
+                                    <button id={languageItem.languageButtonId} className='btn-custom-button ml-1' data-cy="button" value={languageItem.code}  onClick={handleClickLang}>
+                                        {languageItem.label}
+                                    </button>
                                 </Fragment>  
                             )
                             }
@@ -86,7 +83,7 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                                 </div>
                             ) : (
                                 <div>
-                                    <button className='btn-custom-button 'onClick={handleNavigate }>
+                                    <button id="loginUserButton" className='btn-custom-button 'onClick={handleNavigate }>
                                         <span className='span-button'>
                                          <BsPersonCircle /> &nbsp;Login
                                         </span>
@@ -116,13 +113,13 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                     <span className='icon-bar'></span>{' '}
                 </button>
 
-                <Link className='navbar-brand page-scroll' to={{pathname:"/"}}>
+                <Link id="homePage"className='navbar-brand page-scroll' to={{pathname:"/"}}>
                     CBH
                 </Link>
                 </div>
 
-                <div className='collapse navbar-collapse' id='navbar-item-collapse'>
-                <ul className='nav navbar-nav navbar-right'>
+                <div id='navbar-item-collapse' className='collapse navbar-collapse' >
+                <ul  className='nav navbar-nav navbar-right'>
                     <li>
                     <NavLink to="/bikeStation">
                         {t("bikeStation")}

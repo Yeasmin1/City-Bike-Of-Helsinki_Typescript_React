@@ -6,9 +6,9 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import './i18n';
 import './index.css';
 import App from './App';
+import './i18n';
 
 // URI of HSL DigitTransit API
 const httpLink = createHttpLink({ 

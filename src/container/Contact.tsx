@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
+
 const Contact = (props:any) => {
-  const { i18n, t } = useTranslation();
+  const {t} = useTranslation();
   return(
     <div>
         <div id='contact'>

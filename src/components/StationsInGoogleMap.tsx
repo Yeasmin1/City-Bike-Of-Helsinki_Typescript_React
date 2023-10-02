@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 interface mapElements{
   stationNameInMap:string;
 }
@@ -14,10 +15,11 @@ useEffect(() => {
 );
 
 const createGoogleMap = (coordinates:any) => {
-  googleMap=new window.google.maps.Map(ref.current!,{  /*The non-null assertion operator (!.), also called the
-                                                         exclamation mark operator, indicates to the compiler 
-                                                         that we are sure that the value we want to access is 
-                                                         not null or undefined.*/
+  /* The non-null assertion operator (!.), also called the
+  exclamation mark operator, indicates to the compiler 
+  that we are sure that the value we want to access is 
+  not null or undefined. */
+  googleMap=new window.google.maps.Map(ref.current!,{  
     center: {
       lat:  coordinates.lat(61.9241),
       lng: coordinates.lng( 25.7482)
@@ -59,7 +61,6 @@ const createGoogleMap = (coordinates:any) => {
     <div id="map" ref={ref} style={{ width: "600px", height: "600px" }} />
     </>
   );       
-
 };
 
 export default StationsInGoogleMap;

@@ -12,13 +12,13 @@ import TicketsPrice from './components/TicketsPrice';
 import LoginForm from './components/LoginForm';
 import './App.css';
 
-interface ProfileType{
+interface ProfileType {
   picture?:string;
   name: string;
   email?: string;
  }
  
-interface jsonDataInterfaceType{
+interface jsonDataInterfaceType {
   LoginFormData:LoginFormInterface,
   BannerData: BannerInterface,
   BuyPassData:BuyPassInterface,
@@ -84,6 +84,7 @@ const App= () => {
        buttonText1:"", paragraph1:"",paragraph2:"",buttonText2:"" ,emailPlaceholder:"" ,passwordPlaceholder:""},
        BannerData: {title:"",paragraph:""}, BuyPassData:{title:"",paragraph1:"",paragraph2:"",paragraph3:"",
        text:"",button:""}, TicketsInformationData:{title:"",paragraph1:"",paragraph2:""},TicketsPrice:[],Contact:[]});
+       
   const[loginProfile, setLoginProfile] = useState<ProfileType | null>(null); 
 
   // Load data for web app and login session manage at React component mount 
