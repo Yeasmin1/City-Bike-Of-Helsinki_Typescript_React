@@ -9,14 +9,14 @@ interface BannerInterfaceType{
 const Banner:React.FC<BannerInterfaceType>= ({data}) => {
     const {t } = useTranslation();
     return(
-        <div id="banner"> 
+        <div role="region" aria-label="City bike banner"> 
             <div className="container">
                 <div className="row ">
                     <div className="col-md-8 col-md-offset-3 ">                     
-                        <div className="banner-title">{t(data.title)}</div>
-                            <img src="img/bike.jpg" className="img-responsive banner-img" alt="" /> 
-                            <div className="banner-text">{t(data.paragraph)}</div>          
-                        </div>                       
+                        <div className="cityBikeBanner-title">{t(data.title)}</div>
+                        <img src="img/bike.jpg" className="img-responsive cityBikeBanner-img" aria-label="A picture of a city bike" /> 
+                        <div id="cityBikeText" className="cityBikeBanner-text">{t(data.paragraph)}</div>          
+                    </div>                       
                     </div>
                 </div>
             </div>         

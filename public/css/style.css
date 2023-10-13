@@ -99,23 +99,23 @@ hr {
 }
 
 /* First navigatio*/
-#navbar-first {
+#languageAndProfileNav {
   height: 10px;
   align-items: center;
   height: 100%;
   justify-content: center;
 } 
-#navbar-first .nav-elements ul {
+#languageAndProfileNav .nav-elements ul {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   font-weight: 400;
   margin: 5px 0px 5px 0px;  
 }
-#navbar-first .nav-elements ul li:not(:last-child) {
+#languageAndProfileNav .nav-elements ul li:not(:last-child) {
   margin-right: 100px;
 }
-#navbar-first .nav-elements ul li button::after {
+#languageAndProfileNav .nav-elements ul li button::after {
   content: '';
   display: flex;
   width: 0;
@@ -123,10 +123,10 @@ hr {
   background: #488bd2 ;
   transition: width .3s;
 }
-#navbar-first .nav-elements ul li button:hover::after {
+#languageAndProfileNav .nav-elements ul li button:hover::after {
   width: 100%;
 }
-#navbar-first  .nav-elements ul li .btn-custom-button{
+#languageAndProfileNav  .nav-elements ul li .btn-custom-button{
   color: #488bd2 ;
   font-weight: 600;
   font-family: "Raleway", sans-serif;
@@ -138,21 +138,21 @@ hr {
   background-color: transparent;
   background: none;
 }
-#navbar-first .btn-logout-button{
+#languageAndProfileNav .btn-logout-button{
   color: #000000 ; 
 }
-#navbar-first .span-button{
+#languageAndProfileNav .span-button{
   display: flex;
   align-items: center;
 }
-#navbar-first .ml-1 {
+#languageAndProfileNav .ml-1 {
   margin-left: 10px !important;
 }
-#navbar-first .logout-button {
+#languageAndProfileNav .logout-button {
   position: absolute;
-  left: 100;
-  top: 100;
-  z-index: 1000;
+  left: 100px;
+  top: 100px;
+  z-index: 1000px;
   background-color: #f9f9f9;
   min-width: 16px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -165,23 +165,23 @@ hr {
 }
 
 /* Second Navigation */
-#menu {
+#pageLinksNav {
   padding: 3px;
   transition: all 0.8s;  
 }
-#menu.navbar-default {
+#pageLinksNav.navbar-default {
   background-color:  #488bd2 ;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-#menu .navbar-brand {
+#pageLinksNav .navbar-brand {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: #ffffff;
   text-transform: none;
 }
-#menu.navbar-default .navbar-nav > li > a {
+#pageLinksNav.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
   text-transform: none;
   color: #ffffff;
@@ -191,7 +191,7 @@ hr {
   border-radius: 0;
   margin: 9px 20px 0;
 }
-#menu.navbar-default .navbar-nav > li > a:after {
+#pageLinksNav.navbar-default .navbar-nav > li > a:after {
   display: block;
   position: absolute;
   left: 0;
@@ -202,7 +202,7 @@ hr {
   content: "";
   transition: width 0.2s;
 }
-#menu.navbar-default .navbar-nav > li > a:hover:after {
+#pageLinksNav.navbar-default .navbar-nav > li > a:hover:after {
   width: 100%;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -276,23 +276,23 @@ a:focus,
   outline-offset: none;
 }
 
-/* banner Section */
-#banner {
+/* cityBikeBanner Section */
+#cityBikeBanner {
   padding-top: 90px;
   padding-bottom: 90px;
 }
-#banner .banner-title{
+#cityBikeBanner .cityBikeBanner-title{
   font-size: 40px;
   font-weight: 600;
   text-align: center;
   color: #333; 
 }
-#banner .banner-text{
+#cityBikeBanner .cityBikeBanner-text{
   color:   #333;
   font-size: 15px;
   text-align: center;
 }
-#banner .banner-img {
+#cityBikeBanner .cityBikeBanner-img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -346,7 +346,7 @@ a:focus,
   border: 1px solid#777;
 }
 #bikeStation .searchFormStyle{
- padding-top: 12 ;
+ padding-top: 12px ;
  padding-bottom: 15px;
 } 
 #bikeStation .bike-station-text-name{

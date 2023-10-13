@@ -44,10 +44,10 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
     //TODO: error handling for googleLogout
     //Make unique button id for language
     return(
-        <div id="navigation-page" >
-            <nav id="navbar-first">
+        <div id="navigationPage">
+            <div id="languageAndProfileNav" role='navigation' aria-label="Language and profile login ">
                 <div className="container">
-                <div className="nav-elements ">
+                <div className="nav-elements">
                     <ul>
                         <li>
                         <div>
@@ -55,7 +55,7 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                              because JSX elements directly inside a map() call always need key */
                             LANGUAGES.map(languageItem => 
                                 <Fragment key={languageItem.id}> 
-                                    <button id={languageItem.languageButtonId} className='btn-custom-button ml-1' data-cy="button" value={languageItem.code}  onClick={handleClickLang}>
+                                    <button id={languageItem.languageButtonId} className='btn-custom-button ml-1'  value={languageItem.code}  onClick={handleClickLang}>
                                         {languageItem.label}
                                     </button>
                                 </Fragment>  
@@ -66,8 +66,8 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                         <li> 
                             {
                             loginProfile ? (
-                                <div>
-                                   <button id="profileNameButton" className='btn-custom-button' onClick={handleOpen}>
+                                <div >
+                                   <button id="profileNameButton"  className='btn-custom-button' onClick={handleOpen}>
                                         {loginProfile.name}   
                                     </button>  
                                     {
@@ -83,9 +83,9 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                                 </div>
                             ) : (
                                 <div>
-                                    <button id="loginUserButton" className='btn-custom-button 'onClick={handleNavigate }>
+                                    <button id="loginUserButton" className='btn-custom-button' aria-label="login profile" onClick={handleNavigate }>
                                         <span className='span-button'>
-                                         <BsPersonCircle /> &nbsp;Login
+                                         <BsPersonCircle /> &nbsp;Login Profile
                                         </span>
                                         
                                     </button> 
@@ -96,9 +96,9 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                      </ul>
                 </div>
                 </div>
-            </nav>
+            </div>
    
-            <nav id='menu' className='navbar-default '>
+            <div id='pageLinksNav' role='navigation' aria-label="Main pages" className='navbar-default'>
                 <div className='container'>
                 <div className='navbar-header'>
                 <button
@@ -113,7 +113,7 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                     <span className='icon-bar'></span>{' '}
                 </button>
 
-                <Link id="homePage"className='navbar-brand page-scroll' to={{pathname:"/"}}>
+                <Link id="homePage" aria-label="CBH home" className='navbar-brand page-scroll' to={{pathname:"/"}}>
                     CBH
                 </Link>
                 </div>
@@ -143,7 +143,7 @@ const Navigation:React.FC<loginProfileType>= ({loginProfile, setLoginProfile})  
                 </ul>
                 </div>
                 </div>
-            </nav>
+            </div>
         </div>
     
     );

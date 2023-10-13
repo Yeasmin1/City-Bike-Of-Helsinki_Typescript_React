@@ -4,7 +4,7 @@ const Contact = (props:any) => {
   const {t} = useTranslation();
   return(
     <div>
-        <div id='contact'>
+        <div id='contact' role="contentinfo" aria-label="Service related information links">
           <div className='container d-flex'>
             <div className='col-md-12'>
               {props.data.Contact
@@ -81,7 +81,7 @@ const Contact = (props:any) => {
             </div>
           </div>
         
-        <div id='footer'>
+        <div id='footer' role="contentinfo" aria-label="App related information links">
           <div className='container'>
             <div className='d-flex flex-row '>
             {props.data.ContactFooter

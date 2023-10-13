@@ -59,11 +59,11 @@ describe('Navigation without logged in user', () => {
   })
   it('checks english language button fires the event handler',() =>{
     cy.get('#englishButton').contains('English').click()
-    cy.get('#navigation-page').should('be.visible', 'City bikes')
+    cy.get('#navigationPage').should('be.visible', 'City bikes')
   }) 
   it('checks finnish language button fires the event handler',() =>{
     cy.get('#finnishButton').contains('Suomi').click()
-    cy.get('#navigation-page').should('be.visible', 'Kaupunkipyörät')
+    cy.get('#navigationPage').should('be.visible', 'Kaupunkipyörät')
   }) 
   it('checks CBH redirects to the expected home page', () => {
     cy.get('#homePage').click()
@@ -74,3 +74,4 @@ describe('Navigation without logged in user', () => {
     cy.url().should('include', '/bikeStation')  
   })
 })
+
