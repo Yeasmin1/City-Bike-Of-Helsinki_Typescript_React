@@ -45,7 +45,7 @@ interface BuyPassInterface  {
   paragraph2:string,
   paragraph3:string,
   text:string,
-  button:string
+  areaSelectionButton:string
 }
 
 interface TicketsPriceInterface  {
@@ -83,7 +83,7 @@ const App= () => {
   const [PageDataInfo, setPageDataInfo] = useState<jsonDataInterfaceType>({ LoginFormData: {title:"", label1:"", label2:"", 
        buttonText1:"", paragraph1:"",paragraph2:"",buttonText2:"" ,emailPlaceholder:"" ,passwordPlaceholder:""},
        BannerData: {title:"",paragraph:""}, BuyPassData:{title:"",paragraph1:"",paragraph2:"",paragraph3:"",
-       text:"",button:""}, TicketsInformationData:{title:"",paragraph1:"",paragraph2:""},TicketsPrice:[],Contact:[]});
+       text:"",areaSelectionButton:""}, TicketsInformationData:{title:"",paragraph1:"",paragraph2:""},TicketsPrice:[],Contact:[]});
        
   const[loginProfile, setLoginProfile] = useState<ProfileType | null>(null); 
 
