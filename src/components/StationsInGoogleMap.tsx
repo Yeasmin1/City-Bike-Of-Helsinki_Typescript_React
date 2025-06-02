@@ -1,66 +1,47 @@
 import React, { useEffect, useState } from "react";
+import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
 
-
-interface mapElements{
-  stationNameInMap:string;
+interface MapProps extends google.maps.MapOptions {
+  style: { [key: string]: string };
+  children?: React.ReactNode;
 }
-const StationsInGoogleMap:React.FC<mapElements>= ({stationNameInMap}) => {
-const[placeName, setPlaceName]= useState(stationNameInMap)
-const ref = React.useRef(null);
-let googleMap:any;
 
-useEffect(() => {
-  getLatLng();
-}
-);
+const MapContainer = styled(Box)(({ theme }) => ({
+  width: "100%",
+  height: "600px",
+  borderRadius: theme.shape.borderRadius,
+  overflow: "hidden",
+  boxShadow: theme.shadows[3],
+}));
 
-const createGoogleMap = (coordinates:any) => {
-  /* The non-null assertion operator (!.), also called the
-  exclamation mark operator, indicates to the compiler 
-  that we are sure that the value we want to access is 
-  not null or undefined. */
-  googleMap=new window.google.maps.Map(ref.current!,{  
-    center: {
-      lat:  coordinates.lat(61.9241),
-      lng: coordinates.lng( 25.7482)
-    },
-    zoom:15,
-  });
-};
-  
-  if (placeName!= stationNameInMap){
-    setPlaceName(stationNameInMap);
-  }
+const StationsInGoogleMap: React.FC<MapProps> = ({
+  children,
+  style,
+  ...options
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [map, setMap] = React.useState<google.maps.Map>();
 
-  const getLatLng = ()  => {
-    let lat:any | null, lng:any| null;
-    new window.google.maps.Geocoder().geocode(
-      { address: placeName },
-      function (results:any, status:any) {
-        if (status === window.google.maps.GeocoderStatus.OK) {
-          createGoogleMap(results[0].geometry.location);
-          lat = results[0].geometry.location.lat();
-          lng = results[0].geometry.location.lng();
-          new window.google.maps.Marker({
-            position: { lat, lng },
-            map: googleMap,
-            animation: window.google.maps.Animation.DROP,
-            title: placeName,
-          });
-        } else {
-          alert(
-            "Geocode was not successful for the following reason: " + status
-          );
+  React.useEffect(() => {
+    if (ref.current && !map) {
+      const newMap = new window.google.maps.Map(ref.current, {
+        ...options,
+      });
+      setMap(newMap);
+    }
+  }, [ref, map, options]);
+
+  return (
+    <MapContainer>
+      <div ref={ref} style={style} />
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { map });
         }
-      }
-    );
-  };
-
-  return(
-    <>
-    <div id="map" ref={ref} style={{ width: "600px", height: "600px" }} />
-    </>
-  );       
+      })}
+    </MapContainer>
+  );
 };
 
 export default StationsInGoogleMap;

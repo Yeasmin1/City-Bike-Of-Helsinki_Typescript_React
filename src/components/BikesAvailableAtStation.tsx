@@ -1,42 +1,53 @@
-import { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { useTranslation } from "react-i18next"; //imported it in all the relevant component
-import {AVAILABLEBIKES} from '../graphql/queries/ROUTE';
+import { useTranslation } from "react-i18next";
+import { useQuery } from "@apollo/client";
+import { AVAILABLEBIKES } from "../graphql/queries/ROUTE";
+import { styled } from '@mui/material/styles';
+import { Box, Typography, CircularProgress, Alert } from '@mui/material';
 
-interface stationIdDataType{
-  stationIdInBox:string;
+interface BikesAvailableAtStationProps {
+    id: string;
 }
 
-const BikesAvailableAtStation:React.FC<stationIdDataType>= ({stationIdInBox}) => {
-  const[stationIdForBikes, setStationIdForBikes]= useState(stationIdInBox)
-  const {t} = useTranslation() 
+const StyledBox = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: theme.spacing(2),
+}));
 
-  // useQuery hook uses apolloClient to recive data from Digitransit API
-  const { data,error,loading }  = useQuery(
-    AVAILABLEBIKES,{
-      variables: {id: stationIdForBikes}
-  })                                                         
-  
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+const BikesAvailableAtStation: React.FC<BikesAvailableAtStationProps> = ({ id }) => {
+    const { t } = useTranslation();
+    const { loading, error, data } = useQuery(AVAILABLEBIKES, {
+        variables: { id },
+    });
 
-  if (error || !data) {
-    return <div>ERROR</div>;
-  }
-  
-  // Set state variable that triggers page rendering when new stationIdInBox is received
-  if (stationIdForBikes!== stationIdInBox){
-    setStationIdForBikes(stationIdInBox);
-  }
+    if (loading) {
+        return (
+            <StyledBox>
+                <CircularProgress />
+            </StyledBox>
+        );
+    }
 
-  return( 
-    <div>      
-      {t("availableBikestationNumber")} 
-      <h4 >{data.bikeRentalStation.bikesAvailable}</h4>
-    </div>
-  );
-}
+    if (error) {
+        return (
+            <StyledBox>
+                <Alert severity="error">
+                    Error: {error.message}
+                </Alert>
+            </StyledBox>
+        );
+    }
+
+    return (
+        <StyledBox>
+            <Typography variant="h6">
+                {t('Available Bikes')}: {data?.bikeRentalStation?.bikesAvailable || 0}
+            </Typography>
+        </StyledBox>
+    );
+};
 
 export default BikesAvailableAtStation;
 
@@ -44,4 +55,3 @@ export default BikesAvailableAtStation;
 
 
 
-  

@@ -1,4 +1,44 @@
 import { useTranslation } from "react-i18next";
+import { styled } from '@mui/material/styles';
+import { Container, Grid, Box, Typography, Link, IconButton } from '@mui/material';
+import { 
+    Facebook as FacebookIcon, 
+    Twitter as TwitterIcon, 
+    LinkedIn as LinkedInIcon 
+} from '@mui/icons-material';
+
+interface ContactInterface {
+    title: string;
+    social: {
+        facebook: string;
+        twitter: string;
+        linkedin: string;
+    };
+}
+
+interface ContactInterfaceType {
+    data: ContactInterface;
+}
+
+const ContactSection = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(8, 0),
+    backgroundColor: theme.palette.grey[900],
+    color: theme.palette.common.white,
+}));
+
+const SocialContainer = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    gap: theme.spacing(2),
+    justifyContent: 'center',
+    marginTop: theme.spacing(4),
+}));
+
+const SocialButton = styled(IconButton)(({ theme }) => ({
+    color: theme.palette.common.white,
+    '&:hover': {
+        backgroundColor: theme.palette.primary.main,
+    },
+}));
 
 const Contact = (props:any) => {
   const {t} = useTranslation();

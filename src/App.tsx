@@ -1,5 +1,5 @@
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import {  useState, useEffect,  ReactElement } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect, ReactElement } from 'react';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import Banner from './components/Banner';
 import BikeStation from './components/BikeStation';
@@ -104,9 +104,9 @@ const App= () => {
   };
 
   return (
-    <BrowserRouter> 
+    <>
       <Navigation loginProfile={loginProfile} setLoginProfile={setLoginProfile}/>
-      <Wrapper apiKey={`${process.env.REACT_APP_GOOGLE_MAP_API_KEY}`} render={render}>
+      <Wrapper apiKey={import.meta.env.VITE_APP_GOOGLE_MAP_API_KEY} render={render}>
         <Routes>
           <Route path="/" element={<div><Banner data={PageDataInfo.BannerData} /><BuyPass data={PageDataInfo.BuyPassData} /></div>} /> 
           <Route path="/loginForm" element={<div><LoginForm data={PageDataInfo.LoginFormData} setLoginProfile={setLoginProfile}/></div>}/> 
@@ -115,7 +115,7 @@ const App= () => {
         </Routes>
       </Wrapper>
       <Contact data={PageDataInfo}/>
-    </BrowserRouter>
+    </>
   );
 }
 

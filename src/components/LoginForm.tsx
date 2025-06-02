@@ -3,6 +3,8 @@ import {useGoogleLogin } from '@react-oauth/google';
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { styled } from '@mui/material/styles';
+import { Box, Container, Paper, Typography, TextField, Button } from '@mui/material';
 
 
 interface User {
@@ -69,49 +71,70 @@ const LoginForm :React.FC<loginProfileInterface>= ({data, setLoginProfile}) => {
     [ user, setLoginProfile ,navigate]
   );
   
+  const FormContainer = styled(Box)(({ theme }) => ({
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: theme.spacing(2),
+}));
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(4),
+    width: '100%',
+    maxWidth: '400px',
+}));
+
+const FormContent = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(3),
+}));
+
   return (
-    <div id="login-form">
-    <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={handleSubmit}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">{t(data.title)}</h3>
-          <div className="form-group mt-3">
-            <label>{t(data.label1)}</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder={t(data.emailPlaceholder)}
-              value={username} onChange={(event) => setUsername(event.target.value)}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>{t(data.label2)}</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder={t(data.passwordPlaceholder)}
-              value={password} onChange={(event) => setPassword(event.target.value)}
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              {t(data.buttonText1)}
-            </button>
-          </div>
-          <br />
-          <p className=" text-left mt-2">
-            {t(data.paragraph1)}
-          </p>
-          <p className=" text-left mt-2">
-            {t(data.paragraph2)}
-          </p>
-          <button className="btn btn-primary" onClick={() => login()}>
-            {t(data.buttonText2)}       
-          </button>
-        </div>
-      </form>
-    </div>
-    </div>
+    <FormContainer>
+      <Container maxWidth="sm">
+        <StyledPaper elevation={3}>
+          <form onSubmit={handleSubmit}>
+            <FormContent>
+              <Typography variant="h4" align="center" gutterBottom>
+                {t(data.title)}
+              </Typography>
+              
+              <TextField
+                fullWidth
+                label={t(data.email)}
+                variant="outlined"
+                type="email"
+                required
+                placeholder={t(data.emailPlaceholder)}
+                value={username} onChange={(event) => setUsername(event.target.value)}
+              />
+              
+              <TextField
+                fullWidth
+                label={t(data.password)}
+                variant="outlined"
+                type="password"
+                required
+                placeholder={t(data.passwordPlaceholder)}
+                value={password} onChange={(event) => setPassword(event.target.value)}
+              />
+              
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+                size="large"
+              >
+                {t(data.buttonText1)}
+              </Button>
+            </FormContent>
+          </form>
+        </StyledPaper>
+      </Container>
+    </FormContainer>
   );
 };
 

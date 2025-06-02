@@ -1,0 +1,400 @@
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: #777;
+  font-weight: 400;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  font-weight: 800;
+  font-size: 36px;
+  color: #333;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+h4 {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+h5 {
+  text-transform: none;
+  font-weight: 700;
+  line-height: 30px;
+}
+p {
+  font-size: 15px;
+}
+a {
+  color: #608dfd;
+  font-weight: 400;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #608dfd;
+}
+ul,
+ol {
+  list-style: none;
+}
+ul,
+ol {
+  padding: 0;
+}
+hr {
+  background: #6d6f6e;
+}
+
+/* login form style*/
+#login-form{
+  background-color: rgb(244, 243, 243);
+}
+#login-form .Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+#login-form .Auth-form {
+  width: 420px;
+  height: 450px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+#login-form .Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+#login-form .Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+#login-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+#login-form p {
+  font-size: 14px;
+  font-weight: 600;
+  color:rgb(34, 34, 34);
+}
+
+/* First navigatio*/
+#languageAndProfileNav {
+  height: 10px;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+} 
+#languageAndProfileNav .nav-elements ul {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px 0px 5px 0px;  
+}
+#languageAndProfileNav .nav-elements ul li:not(:last-child) {
+  margin-right: 100px;
+}
+#languageAndProfileNav .nav-elements ul li button::after {
+  content: '';
+  display: flex;
+  width: 0;
+  height: 2px;
+  background: #488bd2 ;
+  transition: width .3s;
+}
+#languageAndProfileNav .nav-elements ul li button:hover::after {
+  width: 100%;
+}
+#languageAndProfileNav  .nav-elements ul li .btn-custom-button{
+  color: #488bd2 ;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background: none;
+}
+#languageAndProfileNav .btn-logout-button{
+  color: #000000 ; 
+}
+#languageAndProfileNav .span-button{
+  display: flex;
+  align-items: center;
+}
+#languageAndProfileNav .ml-1 {
+  margin-left: 10px !important;
+}
+#languageAndProfileNav .logout-button {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  z-index: 1000px;
+  background-color: #f9f9f9;
+  min-width: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 10px 50px;
+  height: auto;
+  color: #488bd2 ;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+
+/* Second Navigation */
+#pageLinksNav {
+  padding: 3px;
+  transition: all 0.8s;  
+}
+#pageLinksNav.navbar-default {
+  background-color:  #488bd2 ;
+  border-color: rgba(231, 231, 231, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+#pageLinksNav .navbar-brand {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: none;
+}
+#pageLinksNav.navbar-default .navbar-nav > li > a {
+  font-family: "Lato", sans-serif;
+  text-transform: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 8px 2px;
+  border-radius: 0;
+  margin: 9px 20px 0;
+}
+#pageLinksNav.navbar-default .navbar-nav > li > a:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #e6e7ee 0%, #5ca9fb 100%);
+  content: "";
+  transition: width 0.2s;
+}
+#pageLinksNav.navbar-default .navbar-nav > li > a:hover:after {
+  width: 100%;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a:after,
+.navbar-default .navbar-nav > .active > a:hover:after,
+.navbar-default .navbar-nav > .active > a:focus:after {
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: -1px !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%) !important;
+  content: "" !important;
+  transition: width 0.2s !important;
+}
+.navbar-toggle {
+  border-radius: 0;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #fff;
+  border-color: #608dfd;
+}
+.navbar-default .navbar-toggle:hover > .icon-bar {
+  background-color: #608dfd;
+}
+/* btn Section */
+.btn-custom {
+  font-family: "Raleway", sans-serif;
+  text-transform: none;
+  color: #fff;
+  background-color: #488bd2;
+  padding: 14px 14px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 25px;
+  transition: all 0.5s linear;
+  border: 0;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom.focus,
+.btn-custom:active,
+.btn-custom.active {
+  color: #fff;
+  background-image: none;
+  background-color: #333;
+}
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  outline-offset: none;
+}
+
+/* cityBikeBanner Section */
+#cityBikeBanner {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+#cityBikeBanner .cityBikeBanner-title{
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  color: #333; 
+}
+#cityBikeBanner .cityBikeBanner-text{
+  color:   #333;
+  font-size: 15px;
+  text-align: center;
+}
+#cityBikeBanner .cityBikeBanner-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; 
+}
+
+/* buyTickets Section */
+#buyTickets {
+  padding-top: 100px ;
+  padding-bottom: 100px;
+  background: rgb(255, 255, 255);
+}
+#buyTickets h3 {
+  font-size: 22px;
+}
+#buyTickets .buyTickets-img {
+  display: block;
+  width: 520px;
+  margin-top: 10px;
+}
+#buyTickets p {
+  line-height: 24px;
+  margin: 30px 0;
+}
+
+/* buyPass Section */
+#buyPass {
+  padding: 80px ;
+  background:  rgb(244, 243, 243);
+}
+
+#buyPass .buyPass-img {
+  display: block;
+  width: 520px;
+  margin-top: 10px;
+}
+#buyPass p {
+  line-height: 24px;
+  margin: 30px 0;
+}
+#testStation {
+  padding: 400px 100px;
+}
+
+/* Bike station Section */
+#bikeStation {
+  padding: 20px 0;
+  background: rgb(244, 243, 243);
+}
+#bikeStation .hrStyle {
+  border: 1px solid#777;
+}
+#bikeStation .searchFormStyle{
+ padding-top: 12px ;
+ padding-bottom: 15px;
+} 
+#bikeStation .bike-station-text-name{
+  display: inline;
+  background-color: #000000;
+ } 
+
+/* tprice Section */
+#tprice {
+padding-top: 10px;
+padding-bottom: 60px;
+background: rgb(244, 243, 243);
+}
+#tprice .section-title{
+  padding: 20px 0px;
+}
+#tprice h4 {
+  margin: 5px 0;
+}
+
+/* Contact Section */
+#contact {
+  padding: 70px 0 70px;
+  color:  #488bd2 ;
+  border-color: rgba(231, 231, 231, 0);
+}
+#contact .contact-item {
+  margin: 10px 0;
+  text-decoration-line: underline;
+  text-underline-offset: 1.3em ;
+}
+#contact .contact-item span {
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Footer Section*/
+#footer {
+  padding: 10px 0;
+  background:  #488bd2
+}
+#footer p {
+  color: #ffffff;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  #buyTickets img {
+    margin: 50px 0;
+  }
+}

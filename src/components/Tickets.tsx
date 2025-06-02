@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { styled } from '@mui/material/styles';
+import { Container, Grid, Box, Typography } from '@mui/material';
 
 
 interface TicketsInterface{
@@ -9,27 +11,53 @@ interface TicketsInterface{
 interface TicketsInterfaceType{
     data: TicketsInterface;
 }
+
+const StyledImage = styled('img')(({ theme }) => ({
+    width: '100%',
+    height: 'auto',
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+        marginBottom: 0,
+    },
+}));
+
+const ContentBox = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(3),
+}));
+
+const StyledSection = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(4, 0),
+}));
+
 const Tickets:React.FC<TicketsInterfaceType>= ({data}) => {
     const {t} = useTranslation();
+    
     return( 
-        <div> 
-        <div id="buyTickets">
-        <div className="container">
-        <div className="row">
-            <div className="col-xs-12 col-md-6">
-                <img src="img/bike.jpg" className="img-responsive buyTickets-img" alt="" />
-            </div>
-            <div className="col-xs-12 col-md-6">
-                <div className="buyTickets-text">          
-                    <h3>{t(data.title)}</h3>
-                    <p>{t(data.paragraph1)}</p> 
-                    <p>{t(data.paragraph2)}</p> 
-                </div>             
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
+        <StyledSection component="section" id="buyTickets">
+            <Container>
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={6}>
+                        <StyledImage
+                            src="img/bike.jpg"
+                            alt="City Bike"
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ContentBox>
+                            <Typography variant="h3" gutterBottom>
+                                {t(data.title)}
+                            </Typography>
+                            <Typography paragraph>
+                                {t(data.paragraph1)}
+                            </Typography>
+                            <Typography paragraph>
+                                {t(data.paragraph2)}
+                            </Typography>
+                        </ContentBox>
+                    </Grid>
+                </Grid>
+            </Container>
+        </StyledSection>
     );  
 }
 
