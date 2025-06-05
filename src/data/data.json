@@ -28,15 +28,10 @@
       "areaSelectionButton":"BuyPassButtonText"
     },
 
-"BikeStation":[
-    {
-      "title":"buyPassTitle",
-      "paragraph1": "buyPassParagraph1",
-      "paragraph2":"buyPassParagraph2",
-      "paragraph3": "buyPassParagraph3",
-      "text":"buyPassText"
-    }
-],
+"BikeStationData": {
+      "title": "bikeStationsTitle",
+      "searchPlaceholder": "searchStationsPlaceholder"
+    },
 
 "TicketsInformationData":
     {

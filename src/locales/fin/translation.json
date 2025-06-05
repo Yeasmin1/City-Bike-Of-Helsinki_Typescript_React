@@ -18,6 +18,7 @@
   "loginFormButtonText2":"Kirjaudu sisään Googlella",
   "loginFormEmailPlaceholder":"Syötä sähköposti",
   "loginFormPasswordPlaceholder":"Kirjoita salasana",
+  "logout": "Kirjaudu ulos",
   
   "bannerTitle": "Kaupunkipyörät",
   "bannerParagraph": "Uusi kaupunkipyöräkausi on alkanut. Ilmoittautuminen ja kausikortit ovat nyt saatavilla!",

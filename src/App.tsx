@@ -18,13 +18,19 @@ interface ProfileType {
   email?: string;
  }
  
+interface BikeStationInterface {
+  title: string;
+  searchPlaceholder: string;
+}
+
 interface jsonDataInterfaceType {
-  LoginFormData:LoginFormInterface,
+  LoginFormData: LoginFormInterface,
   BannerData: BannerInterface,
-  BuyPassData:BuyPassInterface,
-  TicketsInformationData:TicketsInterface,
+  BuyPassData: BuyPassInterface,
+  BikeStationData: BikeStationInterface,
+  TicketsInformationData: TicketsInterface,
   TicketsPrice: TicketsPriceInterface[],
-  Contact:ContactInterface[]
+  Contact: ContactInterface[]
 }
 
 interface LoginFormInterface  {
@@ -110,7 +116,7 @@ const App= () => {
         <Routes>
           <Route path="/" element={<div><Banner data={PageDataInfo.BannerData} /><BuyPass data={PageDataInfo.BuyPassData} /></div>} /> 
           <Route path="/loginForm" element={<div><LoginForm data={PageDataInfo.LoginFormData} setLoginProfile={setLoginProfile}/></div>}/> 
-          <Route path="/bikeStation" element={<div><BikeStation/></div>} />   
+          <Route path="/bikeStation" element={<div><BikeStation data={{title: "bikeStation", searchPlaceholder: "nearbyBikeStationName"}}/></div>} />   
           <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.TicketsInformationData} /><TicketsPrice data={PageDataInfo}/></div>} /> 
         </Routes>
       </Wrapper>

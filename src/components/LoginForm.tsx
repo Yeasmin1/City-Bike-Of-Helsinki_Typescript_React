@@ -4,7 +4,18 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { styled } from '@mui/material/styles';
-import { Box, Container, Paper, Typography, TextField, Button } from '@mui/material';
+import { 
+    Box, 
+    Container, 
+    Paper, 
+    Typography, 
+    TextField, 
+    Button, 
+    Divider,
+    IconButton
+} from '@mui/material';
+import { Google as GoogleIcon } from '@mui/icons-material';
+import { LightSection, ContentContainer } from '../theme/commonStyles';
 
 
 interface User {
@@ -71,18 +82,12 @@ const LoginForm :React.FC<loginProfileInterface>= ({data, setLoginProfile}) => {
     [ user, setLoginProfile ,navigate]
   );
   
-  const FormContainer = styled(Box)(({ theme }) => ({
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: theme.spacing(2),
-}));
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
+  const LoginCard = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(4),
     width: '100%',
     maxWidth: '400px',
+    borderRadius: theme.shape.borderRadius * 2,
+    boxShadow: theme.shadows[3],
 }));
 
 const FormContent = styled(Box)(({ theme }) => ({
@@ -91,50 +96,103 @@ const FormContent = styled(Box)(({ theme }) => ({
     gap: theme.spacing(3),
 }));
 
-  return (
-    <FormContainer>
-      <Container maxWidth="sm">
-        <StyledPaper elevation={3}>
-          <form onSubmit={handleSubmit}>
-            <FormContent>
-              <Typography variant="h4" align="center" gutterBottom>
-                {t(data.title)}
-              </Typography>
-              
-              <TextField
-                fullWidth
-                label={t(data.email)}
-                variant="outlined"
-                type="email"
-                required
-                placeholder={t(data.emailPlaceholder)}
-                value={username} onChange={(event) => setUsername(event.target.value)}
-              />
-              
-              <TextField
-                fullWidth
-                label={t(data.password)}
-                variant="outlined"
-                type="password"
-                required
-                placeholder={t(data.passwordPlaceholder)}
-                value={password} onChange={(event) => setPassword(event.target.value)}
-              />
-              
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                size="large"
-              >
-                {t(data.buttonText1)}
-              </Button>
-            </FormContent>
-          </form>
-        </StyledPaper>
-      </Container>
-    </FormContainer>
+const GoogleButton = styled(Button)(({ theme }) => ({
+    backgroundColor: '#fff',
+    color: theme.palette.text.primary,
+    border: `1px solid ${theme.palette.divider}`,
+    '&:hover': {
+        backgroundColor: theme.palette.grey[50],
+    },
+}));
+
+const OrDivider = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(2),
+    margin: theme.spacing(3, 0),
+    '& hr': {
+        flexGrow: 1,
+    },
+}));
+
+return (
+    <LightSection>
+        <ContentContainer maxWidth="sm" sx={{ 
+            minHeight: '80vh', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+        }}>
+            <LoginCard>
+                <Typography variant="h4" align="center" gutterBottom>
+                    {t(data.title)}
+                </Typography>
+                
+                <GoogleButton
+                    fullWidth
+                    variant="outlined"
+                    size="large"
+                    onClick={() => login()}
+                    startIcon={<GoogleIcon />}
+                >
+                    {t(data.buttonText2)}
+                </GoogleButton>
+
+                <OrDivider>
+                    <Divider flexItem />
+                    <Typography variant="body2" color="text.secondary">
+                        {t(data.paragraph2)}
+                    </Typography>
+                    <Divider flexItem />
+                </OrDivider>
+
+                <form onSubmit={handleSubmit}>
+                    <FormContent>
+                        <TextField
+                            fullWidth
+                            label={t(data.label1)}
+                            variant="outlined"
+                            type="email"
+                            required
+                            placeholder={t(data.emailPlaceholder)}
+                            value={username}
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+                        
+                        <TextField
+                            fullWidth
+                            label={t(data.label2)}
+                            variant="outlined"
+                            type="password"
+                            required
+                            placeholder={t(data.passwordPlaceholder)}
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                        
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            fullWidth
+                            size="large"
+                        >
+                            {t(data.buttonText1)}
+                        </Button>
+
+                        <Typography 
+                            variant="body2" 
+                            color="primary" 
+                            align="center" 
+                            sx={{ cursor: 'pointer' }}
+                        >
+                            {t(data.paragraph1)}
+                        </Typography>
+                    </FormContent>
+                </form>
+            </LoginCard>
+        </ContentContainer>
+    </LightSection>
   );
 };
 

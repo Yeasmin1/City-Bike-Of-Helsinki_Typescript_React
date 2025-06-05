@@ -18,6 +18,7 @@
   "loginFormButtonText2":"Login with Google",
   "loginFormEmailPlaceholder":"Enter email",
   "loginFormPasswordPlaceholder":"Enter password",
+  "logout": "Logout",
 
   "bannerTitle": "City bikes",
   "bannerParagraph": "The new city bike season has started. Registration and season passes are now available!",

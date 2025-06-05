@@ -9,17 +9,19 @@ import {
     Box 
 } from '@mui/material';
 
-interface TicketsPriceInterface {
+interface TicketsPriceItem {
     title: string;
-    items: {
-        helsinki: string;
-        espoo: string;
-        allArea: string;
-    };
+    text: string;
+    price: string;
+    paragraph: string;
+    button: string;
 }
 
 interface TicketsPriceInterfaceType {
-    data: TicketsPriceInterface;
+    data: {
+        TicketsPrice: TicketsPriceItem[];
+        TicketsPriceHeader: Array<{ title: string }>;
+    };
 }
 
 const PriceCard = styled(Card)(({ theme }) => ({
@@ -47,12 +49,12 @@ const PriceSection = styled(Box)(({ theme }) => ({
 
 const TicketsPrice: React.FC<TicketsPriceInterfaceType> = ({ data }) => {
     const { t } = useTranslation();
-
-    const priceCards = [
-        { title: t(data.items.helsinki), price: '5€' },
-        { title: t(data.items.espoo), price: '5€' },
-        { title: t(data.items.allArea), price: '8€' },
-    ];
+    
+    const priceCards = data.TicketsPrice.map(item => ({
+        title: t(item.title),
+        price: t(item.price),
+        text: t(item.text)
+    }));
 
     return (
         <PriceSection>
@@ -63,7 +65,7 @@ const TicketsPrice: React.FC<TicketsPriceInterfaceType> = ({ data }) => {
                     gutterBottom
                     sx={{ mb: 4 }}
                 >
-                    {t(data.title)}
+                    {t(data.TicketsPriceHeader[0].title)}
                 </Typography>
                 <Grid container spacing={4} justifyContent="center">
                     {priceCards.map((card, index) => (
