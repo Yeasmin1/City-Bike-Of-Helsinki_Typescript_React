@@ -8,6 +8,7 @@
   "nearbyBikeStationName":"Search bike stations",
   "bikeStationName":"Bike station name :",
   "availableBikestationNumber":"Bikes available at the station right now : ",
+  "availableBikes": "Available Bikes",
 
   "loginFormTitle":"Login",
   "loginFormLabel1":"Email address",

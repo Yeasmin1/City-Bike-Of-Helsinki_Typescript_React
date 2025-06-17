@@ -8,6 +8,7 @@
   "nearbyBikeStationName":"Etsi pyöräasemat",
   "bikeStationName":"Pyöräaseman nimi :",
   "availableBikestationNumber":"Pyörät saatavilla asemalla juuri nyt : ",
+  "availableBikes": "Saatavilla olevat pyörät",
 
   "loginFormTitle":"Kirjaudu sisään",
   "loginFormLabel1":"Sähköpostiosoite",

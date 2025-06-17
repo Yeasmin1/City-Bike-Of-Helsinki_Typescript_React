@@ -6,7 +6,8 @@ import {
     Card, 
     CardContent, 
     Typography, 
-    Box 
+    Box,
+    Button 
 } from '@mui/material';
 
 interface TicketsPriceItem {
@@ -25,10 +26,13 @@ interface TicketsPriceInterfaceType {
 }
 
 const PriceCard = styled(Card)(({ theme }) => ({
-    height: '100%',
+    height: 400,
+    minWidth: 280,
+    maxWidth: 320,
     display: 'flex',
     flexDirection: 'column',
     transition: 'transform 0.2s',
+    margin: '0 auto', // Center card in grid item
     '&:hover': {
         transform: 'translateY(-5px)',
         boxShadow: theme.shadows[4],
@@ -47,45 +51,102 @@ const PriceSection = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.grey[50],
 }));
 
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    padding: theme.spacing(3),
+    '& > *:not(:last-child)': {
+        marginBottom: theme.spacing(2),
+    },
+    '& .MuiButton-root': {
+        marginTop: 'auto' // Pushes button to bottom
+    }
+}));
+
+
 const TicketsPrice: React.FC<TicketsPriceInterfaceType> = ({ data }) => {
     const { t } = useTranslation();
-    
-    const priceCards = data.TicketsPrice.map(item => ({
-        title: t(item.title),
-        price: t(item.price),
-        text: t(item.text)
-    }));
 
     return (
-        <PriceSection>
-            <Container>
-                <Typography 
-                    variant="h3" 
-                    align="center" 
-                    gutterBottom
-                    sx={{ mb: 4 }}
-                >
-                    {t(data.TicketsPriceHeader[0].title)}
-                </Typography>
-                <Grid container spacing={4} justifyContent="center">
-                    {priceCards.map((card, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
+        <PriceSection id="tprice">
+            <Container maxWidth="lg" sx={{ overflowX: 'hidden' }}>
+                {data.TicketsPriceHeader ? (
+                    <Typography 
+                        variant="h3" 
+                        align="center" 
+                        gutterBottom
+                        sx={{ mb: 4 }}
+                    >
+                        {t(data.TicketsPriceHeader[0].title)}
+                    </Typography>
+                ) : (
+                    'loading'
+                )}
+
+                <Grid 
+            container 
+            spacing={3}
+            sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'stretch',
+                '& .MuiGrid-item': {
+                    display: 'flex',
+                    flex: '0 0 auto',
+                    width: {
+                        xs: '100%',
+                        sm: '50%',
+                        lg: '25%'
+                    },
+                    maxWidth: {
+                        xs: '100%',
+                        sm: '50%',
+                        lg: '25%'
+                    }
+                }
+            }}
+        >
+                    {data.TicketsPrice ? data.TicketsPrice.map((card, index) => (
+                        <Grid item key={`${card.title}-${index}`}>
                             <PriceCard>
-                                <CardContent>
+                                <StyledCardContent>
                                     <CardTitle variant="h5">
-                                        {card.title}
+                                        {t(card.title)}
                                     </CardTitle>
+                                    <Typography 
+                                        variant="body1" 
+                                        align="center"
+                                    >
+                                        {t(card.text)}
+                                    </Typography>
                                     <Typography 
                                         variant="h4" 
                                         align="center" 
                                         color="primary"
+                                        sx={{ fontWeight: 600 }}
                                     >
-                                        {card.price}
+                                        {t(card.price)}
                                     </Typography>
-                                </CardContent>
+                                    <Typography 
+                                        variant="body1" 
+                                        align="center"
+                                    >
+                                        {t(card.paragraph)}
+                                    </Typography>
+                                    <Button 
+                                        variant="contained" 
+                                        color="primary"
+                                        fullWidth
+                                        sx={{ mt: 'auto' }}
+                                    >
+                                        {t(card.button)}
+                                    </Button>
+                                </StyledCardContent>
                             </PriceCard>
                         </Grid>
-                    ))}
+                    )) : 'loading'}
                 </Grid>
             </Container>
         </PriceSection>

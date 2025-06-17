@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { styled } from '@mui/material/styles';
-import { Box, Button, ButtonGroup } from '@mui/material';
+import { Box } from '@mui/material';
 
 interface LanguageItem {
     code: string;
@@ -18,13 +18,30 @@ const LanguageContainer = styled(Box)(({ theme }) => ({
     gap: theme.spacing(1),
 }));
 
-const LanguageButton = styled(Button)(({ theme }) => ({
-    minWidth: 'auto',
+const LanguageText = styled('span')(({ theme }) => ({
+    cursor: 'pointer',
+    fontWeight: 600,
+    color: theme.palette.primary.main,
+    position: 'relative',
     padding: theme.spacing(0.5, 1),
-    textTransform: 'uppercase',
+    transition: 'color 0.2s',
+    '&:hover': {
+        opacity: 0.8,
+    },
     '&.active': {
+        '&::after': {
+            width: '100%',
+        }
+    },
+    '&::after': {
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        height: '2px',
+        width: '0%',
         backgroundColor: theme.palette.primary.main,
-        color: theme.palette.common.white,
+        transition: 'width 0.3s',
     },
 }));
 
@@ -37,18 +54,16 @@ const Language: React.FC<LanguageProps> = ({ languages }) => {
 
     return (
         <LanguageContainer>
-            <ButtonGroup variant="outlined" size="small">
-                {languages.map((lang) => (
-                    <LanguageButton
-                        key={lang.code}
-                        id={lang.languageButtonId}
-                        onClick={() => handleLanguageChange(lang.code)}
-                        className={i18n.language === lang.code ? 'active' : ''}
-                    >
-                        {lang.label}
-                    </LanguageButton>
-                ))}
-            </ButtonGroup>
+            {languages.map((lang) => (
+                <LanguageText
+                    key={lang.code}
+                    id={lang.languageButtonId}
+                    className={i18n.language === lang.code ? 'active' : ''}
+                    onClick={() => handleLanguageChange(lang.code)}
+                >
+                    {lang.label}
+                </LanguageText>
+            ))}
         </LanguageContainer>
     );
 };

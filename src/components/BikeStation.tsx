@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { RENTALSTATION } from "../graphql/queries/ROUTE";
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { setSelectedStation, setStations, setLoading, setError } from '../redux/slices/bikeStationSlice';
 import Select, { SingleValue } from "react-select";
 import BikesAvailableAtStation from "./BikesAvailableAtStation";
 import StationsInGoogleMap from "./StationsInGoogleMap";
@@ -74,14 +76,17 @@ const StyledSelect = styled(Select)(({ theme }) => ({
 
 const BikeStation: React.FC<BikeStationInterfaceType> = ({ data }) => {
     const { t } = useTranslation();
-    const [selectedStation, setSelectedStation] = useState<string | null>(null);
+    const dispatch = useAppDispatch();
+    const selectedStation = useAppSelector(state => state.bikeStation.selectedStation);
     const { loading, error, data: stationData } = useQuery(RENTALSTATION);
 
     const handleChange = (
         option: SingleValue<{ value: string; label: string }>
     ) => {
         if (option) {
-            setSelectedStation(option.value);
+            dispatch(setSelectedStation(option.value));
+        } else {
+            dispatch(setSelectedStation(null));
         }
     };
 
@@ -102,7 +107,6 @@ const BikeStation: React.FC<BikeStationInterfaceType> = ({ data }) => {
             </Box>
         );
     }
-
     const options = stationData?.bikeRentalStations?.map((station: Station) => ({
         value: station.stationId,
         label: station.name,

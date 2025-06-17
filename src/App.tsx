@@ -1,6 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect, ReactElement } from 'react';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
+import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
+import { setLoginProfile } from './redux/slices/authSlice';
+import { setBannerContent } from './redux/slices/contentSlice';
 import Banner from './components/Banner';
 import BikeStation from './components/BikeStation';
 import BuyPass from './components/BuyPass';
@@ -91,16 +94,18 @@ const App= () => {
        BannerData: {title:"",paragraph:""}, BuyPassData:{title:"",paragraph1:"",paragraph2:"",paragraph3:"",
        text:"",areaSelectionButton:""}, TicketsInformationData:{title:"",paragraph1:"",paragraph2:""},TicketsPrice:[],Contact:[]});
        
-  const[loginProfile, setLoginProfile] = useState<ProfileType | null>(null); 
+  const dispatch = useAppDispatch();
+  const loginProfile = useAppSelector(state => state.auth.loginProfile);
 
   // Load data for web app and login session manage at React component mount 
   useEffect(() => {
     setPageDataInfo(Jsondata);
+    dispatch(setBannerContent(Jsondata.BannerData));
     const isLoggedIn = window.sessionStorage.getItem('userProfile')
-    if (isLoggedIn){
-      setLoginProfile(JSON.parse(isLoggedIn)) //JSON.parse expect always non null values.
+    if (isLoggedIn) {
+      dispatch(setLoginProfile(JSON.parse(isLoggedIn)));
     }
-  }, []);
+  }, [dispatch]);
 
   // Handle error cases during Google map rendering
   const render = (status:Status):ReactElement => {
@@ -111,11 +116,11 @@ const App= () => {
 
   return (
     <>
-      <Navigation loginProfile={loginProfile} setLoginProfile={setLoginProfile}/>
+      <Navigation />
       <Wrapper apiKey={import.meta.env.VITE_APP_GOOGLE_MAP_API_KEY} render={render}>
         <Routes>
           <Route path="/" element={<div><Banner data={PageDataInfo.BannerData} /><BuyPass data={PageDataInfo.BuyPassData} /></div>} /> 
-          <Route path="/loginForm" element={<div><LoginForm data={PageDataInfo.LoginFormData} setLoginProfile={setLoginProfile}/></div>}/> 
+          <Route path="/loginForm" element={<div><LoginForm data={PageDataInfo.LoginFormData} /></div>}/> 
           <Route path="/bikeStation" element={<div><BikeStation data={{title: "bikeStation", searchPlaceholder: "nearbyBikeStationName"}}/></div>} />   
           <Route path="/ticketsInfo" element={<div><Tickets data={PageDataInfo.TicketsInformationData} /><TicketsPrice data={PageDataInfo}/></div>} /> 
         </Routes>

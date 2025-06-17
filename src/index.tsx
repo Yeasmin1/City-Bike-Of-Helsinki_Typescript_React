@@ -8,6 +8,8 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import { theme } from './theme/theme';
 import './index.css';
 import App from './App';
@@ -40,16 +42,18 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GoogleOAuthProvider clientId="958063092314-np3ibb1l0h0fg14otouc7nbhj237ecoq.apps.googleusercontent.com">
-        <ApolloProvider client={client}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-          </ThemeProvider>
-        </ApolloProvider>
-      </GoogleOAuthProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+          <ApolloProvider client={client}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </ThemeProvider>
+          </ApolloProvider>
+        </GoogleOAuthProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

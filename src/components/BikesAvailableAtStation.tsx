@@ -53,7 +53,7 @@ const BikesAvailableAtStation: React.FC<BikesAvailableAtStationProps> = ({ id })
                 color="primary.main"
                 gutterBottom
             >
-                {t('Available Bikes')}
+                {t('availableBikes')}
             </Typography>
             <Typography 
                 variant="h3" 

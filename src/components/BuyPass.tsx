@@ -19,21 +19,24 @@ interface BuyPassInterfaceType {
 const StyledImage = styled('img')(({ theme }) => ({
     width: '100%',
     height: 'auto',
-    marginBottom: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-        marginBottom: 0,
-    },
+    display: 'block',
+    maxWidth: '100%',
+    borderRadius: theme.shape.borderRadius,
+    [theme.breakpoints.down('md')]: {
+        marginBottom: theme.spacing(2)
+    }
 }));
 
 const ContentBox = styled(Box)(({ theme }) => ({
-    padding: theme.spacing(2),
+    height: '100%',
+    flex: 1,
     [theme.breakpoints.up('md')]: {
         paddingLeft: theme.spacing(4),
-    },
+    }
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-    marginTop: theme.spacing(2),
+    marginTop: 'auto',
     padding: theme.spacing(1, 4),
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
@@ -50,10 +53,18 @@ const BuyPass: React.FC<BuyPassInterfaceType> = ({ data }) => {
     const { t } = useTranslation();
 
     return (
-        <Box id="buyPass" role="region" aria-label="Information about ticket based on cities">
-            <Container>
-                <Grid container spacing={4} alignItems="center">
-                    <Grid item xs={12} md={6}>
+        <Box id="buyPass" role="region" aria-label="Information about ticket based on cities" sx={{ py: 6 }}>
+            <Container maxWidth="lg">
+                <Grid 
+                    container 
+                    spacing={3}
+                    alignItems="center"
+                    sx={{
+                        flexDirection: { xs: 'column', md: 'row' },
+                        my: 2
+                    }}
+                >
+                    <Grid item xs={12} md={6} sx={{ flex: 1 }}>
                         <StyledImage
                             src="img/city-map.jpg"
                             alt="Picture of a city map"
@@ -91,6 +102,6 @@ const BuyPass: React.FC<BuyPassInterfaceType> = ({ data }) => {
             </Container>
         </Box>
     );
-}
+};
 
 export default BuyPass;

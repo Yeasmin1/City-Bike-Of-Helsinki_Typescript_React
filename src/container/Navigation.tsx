@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { logout } from '../redux/slices/authSlice';
+import { toggleMobileNav } from '../redux/slices/uiSlice';
 import Language from './Language';
 import { styled } from '@mui/material/styles';
 import {
@@ -22,20 +25,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 
 interface NavigationProps {
-    loginProfile: {
-        picture?: string;
-        name: string;
-        email: string;
-    } | null;
-    setLoginProfile: (profile: any) => void;
+    // No props needed anymore as we'll use Redux
 }
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-    background: theme.palette.background.paper,
+    background: theme.palette.primary.main,
+    color: theme.palette.common.white,
     boxShadow: theme.shadows[2],
     borderBottom: 'none',
     position: 'sticky',
-    top: '36px',
+    top: '40px',
     zIndex: theme.zIndex.appBar,
     transition: theme.transitions.create(['background-color', 'box-shadow'], {
         duration: theme.transitions.duration.standard,
@@ -43,15 +42,21 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
     '&:hover': {
         boxShadow: theme.shadows[4],
     },
+    '& .MuiTypography-root': {
+        color: theme.palette.common.white,
+    }
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.text.primary,
-    marginLeft: theme.spacing(2),
+    color: theme.palette.common.white,
+    marginLeft: theme.spacing(1),
     position: 'relative',
+    height: 28,
+    padding: theme.spacing(0, 1),
+    fontWeight: 600,
     '&:hover': {
-        color: theme.palette.primary.main,
-        backgroundColor: 'transparent',
+        color: theme.palette.common.white,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
         '&::after': {
             width: '100%',
         }
@@ -63,14 +68,14 @@ const NavButton = styled(Button)(({ theme }) => ({
         left: 0,
         width: '0%',
         height: '2px',
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.common.white,
         transition: 'width 0.3s ease-in-out'
     }
 }));
 
 const Logo = styled(Link)(({ theme }) => ({
     textDecoration: 'none',
-    color: theme.palette.primary.main,
+    color: theme.palette.common.white,
     display: 'flex',
     alignItems: 'center',
     fontWeight: 700,
@@ -82,28 +87,30 @@ const Logo = styled(Link)(({ theme }) => ({
     }),
     '&:hover': {
         transform: 'translateY(-1px)',
-        backgroundColor: 'rgba(25, 118, 210, 0.04)',
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        color: theme.palette.common.white,
     }
 }));
 
 const TopNav = styled(AppBar)(({ theme }) => ({
     background: theme.palette.grey[100],
     boxShadow: 'none',
-    minHeight: 36,
-    height: 36,
+    minHeight: 40,
+    height: 40,
     justifyContent: 'center',
     zIndex: theme.zIndex.appBar + 1,
     position: 'sticky',
     top: 0,
+    width: '100%',
 }));
 
 const TopToolbar = styled(Toolbar)(({ theme }) => ({
-    minHeight: 36,
-    height: 36,
+    minHeight: 40,
+    height: 40,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: theme.spacing(0, 3),
+    width: '100%',
     '& .MuiContainer-root': {
         padding: 0,
     },
@@ -113,34 +120,62 @@ const MainToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: theme.spacing(0, 3),
+    width: '100%',
+    minHeight: '56px',
     '& .MuiContainer-root': {
         padding: 0,
     },
+    '& .MuiButton-root': {
+        lineHeight: '28px',
+        display: 'flex',
+        alignItems: 'center',
+    }
 }));
 
 const TopRightSection = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(1),
+    '& .MuiButton-root': {
+        fontWeight: 600,
+        borderRadius: '20px',
+        padding: theme.spacing(0, 1.5),
+        height: 28,
+        '&:hover': {
+            backgroundColor: 'rgba(25, 118, 210, 0.08)',
+        }
+    }
+}));
+
+const NavContainer = styled(Container)(({ theme }) => ({
+    maxWidth: theme.breakpoints.values.lg + 'px',
+    width: '100%',
+    margin: '0 auto',
+    padding: theme.spacing(0, 3),
+    [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(0, 2),
+    },
 }));
 
 const MainNav = styled(Box)(({ theme }) => ({
     position: 'sticky',
-    top: 36,
+    top: 40,
     zIndex: theme.zIndex.appBar,
     backgroundColor: theme.palette.background.paper,
+    width: '100%',
 }));
 
-const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }) => {
+const Navigation: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const loginProfile = useAppSelector(state => state.auth.loginProfile);
+    const mobileOpen = useAppSelector(state => state.ui.isMobileNavOpen);
     const { t } = useTranslation();
     const navigate = useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+        dispatch(toggleMobileNav());
     };
 
     const handleNavigate = () => {
@@ -148,8 +183,8 @@ const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }
     };
 
     const handleLogout = () => {
-        setLoginProfile(null);
-        window.sessionStorage.removeItem('userProfile');
+        dispatch(logout());
+        navigate('/');
     };
 
     const StyledDrawer = styled(Drawer)(({ theme }) => ({
@@ -209,12 +244,12 @@ const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }
         <Box sx={{ flexGrow: 1 }}>
             {/* Top nav for language selector and login */}
             <TopNav position="static">
-                <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3 } }}>
+                <NavContainer>
                     <TopToolbar>
-                        <Box sx={{ display: 'flex', alignItems: 'center', ml: -1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', ml: { xs: -0.5, sm: -1 } }}>
                             <Language languages={[
-                                { code: 'en', label: 'EN', languageButtonId: 'englishButton' },
-                                { code: 'fin', label: 'FI', languageButtonId: 'finnishButton' }
+                                { code: 'en', label: 'In English', languageButtonId: 'englishButton' },
+                                { code: 'fin', label: 'Suomeksi', languageButtonId: 'finnishButton' }
                             ]} />
                         </Box>
                         <TopRightSection>
@@ -261,15 +296,15 @@ const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }
                             )}
                         </TopRightSection>
                     </TopToolbar>
-                </Container>
+                </NavContainer>
             </TopNav>
 
             {/* Main nav for logo and nav links */}
             <MainNav>
                 <StyledAppBar position="static">
-                    <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3 } }}>
+                    <NavContainer>
                         <MainToolbar>
-                            <Box sx={{ display: 'flex', alignItems: 'center', ml: { xs: -1, sm: -2 } }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', ml: { xs: -0.5, sm: -1 } }}>
                                 {isMobile && (
                                     <IconButton
                                         color="primary"
@@ -298,7 +333,11 @@ const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }
                             </Box>
 
                             {!isMobile && (
-                                <Box sx={{ display: 'flex', alignItems: 'center', mr: -1 }}>
+                                <Box sx={{ 
+                                    display: 'flex', 
+                                    alignItems: 'center',
+                                    gap: 0.5
+                                }}>
                                     <NavButton component={Link} to="/">
                                         {t('home')}
                                     </NavButton>
@@ -311,7 +350,7 @@ const Navigation: React.FC<NavigationProps> = ({ loginProfile, setLoginProfile }
                                 </Box>
                             )}
                         </MainToolbar>
-                    </Container>
+                    </NavContainer>
                 </StyledAppBar>
             </MainNav>
 
