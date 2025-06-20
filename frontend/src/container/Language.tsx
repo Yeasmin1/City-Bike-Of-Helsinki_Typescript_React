@@ -10,6 +10,7 @@ interface LanguageItem {
 
 interface LanguageProps {
     languages: LanguageItem[];
+    onLanguageChange: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const LanguageContainer = styled(Box)(({ theme }) => ({
@@ -45,11 +46,12 @@ const LanguageText = styled('span')(({ theme }) => ({
     },
 }));
 
-const Language: React.FC<LanguageProps> = ({ languages }) => {
+const Language: React.FC<LanguageProps> = ({ languages, onLanguageChange }) => {
     const { i18n } = useTranslation();
 
     const handleLanguageChange = (langCode: string) => {
         i18n.changeLanguage(langCode);
+        onLanguageChange(langCode);
     };
 
     return (

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, i18n } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { logout } from '../redux/slices/authSlice';
-import { toggleMobileNav } from '../redux/slices/uiSlice';
+import { toggleMobileNav, setMenuAnchorEl } from '../redux/slices/uiSlice';
 import Language from './Language';
 import { styled } from '@mui/material/styles';
 import {
@@ -20,9 +20,12 @@ import {
     Container,
     useMediaQuery,
     useTheme,
+    Menu,
+    MenuItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
+import { googleLogout } from '@react-oauth/google';
 
 interface NavigationProps {
     // No props needed anymore as we'll use Redux
@@ -169,7 +172,8 @@ const Navigation: React.FC = () => {
     const dispatch = useAppDispatch();
     const loginProfile = useAppSelector(state => state.auth.loginProfile);
     const mobileOpen = useAppSelector(state => state.ui.isMobileNavOpen);
-    const { t } = useTranslation();
+    const menuAnchorEl = useAppSelector(state => state.ui.menuAnchorEl);
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -182,9 +186,25 @@ const Navigation: React.FC = () => {
         navigate('/loginForm');
     };
 
+    const handleClickLang = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const lang_code = e.currentTarget.value;
+        i18n.changeLanguage(lang_code);
+    };
+
     const handleLogout = () => {
+        googleLogout();
         dispatch(logout());
+        handleMenuClose();
+        window.sessionStorage.clear();
         navigate('/');
+    };
+
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        dispatch(setMenuAnchorEl(event.currentTarget));
+    };
+
+    const handleMenuClose = () => {
+        dispatch(setMenuAnchorEl(null));
     };
 
     const StyledDrawer = styled(Drawer)(({ theme }) => ({
@@ -236,6 +256,28 @@ const Navigation: React.FC = () => {
                 >
                     <ListItemText primary={t('bikeStation')} />
                 </StyledListItem>
+                <Box sx={{ borderTop: 1, borderColor: 'divider', my: 1 }} />
+                {loginProfile ? (
+                    <StyledListItem 
+                        onClick={handleLogout}
+                        sx={{ '&:hover': { cursor: 'pointer' } }}
+                    >
+                        <ListItemText 
+                            primary={`${t('logout')} (${loginProfile.name})`}
+                            sx={{ color: 'primary.main' }}
+                        />
+                    </StyledListItem>
+                ) : (
+                    <StyledListItem 
+                        onClick={handleNavigate}
+                        sx={{ '&:hover': { cursor: 'pointer' } }}
+                    >
+                        <ListItemText 
+                            primary={t('loginFormTitle')}
+                            sx={{ color: 'primary.main' }}
+                        />
+                    </StyledListItem>
+                )}
             </List>
         </Box>
     );
@@ -250,29 +292,40 @@ const Navigation: React.FC = () => {
                             <Language languages={[
                                 { code: 'en', label: 'In English', languageButtonId: 'englishButton' },
                                 { code: 'fin', label: 'Suomeksi', languageButtonId: 'finnishButton' }
-                            ]} />
+                            ]} onLanguageChange={handleClickLang} />
                         </Box>
                         <TopRightSection>
                             {loginProfile ? (
-                                <Button
-                                    color="primary"
-                                    variant="text"
-                                    onClick={handleLogout}
-                                    startIcon={<PersonIcon />}
-                                    size="small"
-                                    id="profileNameButton"
-                                    sx={{ 
-                                        fontWeight: 500,
-                                        borderRadius: '20px',
-                                        px: 1.5,
-                                        height: 28,
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(25, 118, 210, 0.08)',
-                                        }
-                                    }}
-                                >
-                                    {`${loginProfile.name}`}
-                                </Button>
+                                <>
+                                    <Button
+                                        color="primary"
+                                        variant="text"
+                                        onClick={handleMenuOpen}
+                                        startIcon={<PersonIcon />}
+                                        size="small"
+                                        id="profileNameButton"
+                                    >
+                                        {loginProfile.name}
+                                    </Button>
+                                    <Menu
+                                        id="profile-menu"
+                                        anchorEl={menuAnchorEl}
+                                        open={Boolean(menuAnchorEl)}
+                                        onClose={handleMenuClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                    >
+                                        <MenuItem onClick={handleLogout} id="logoutButton">
+                                            {t('logout')}
+                                        </MenuItem>
+                                    </Menu>
+                                </>
                             ) : (
                                 <Button
                                     color="primary"

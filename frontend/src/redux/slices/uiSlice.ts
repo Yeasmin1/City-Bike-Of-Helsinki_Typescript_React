@@ -2,25 +2,27 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UiState {
   isMobileNavOpen: boolean;
+  menuAnchorEl: HTMLElement | null;
 }
 
 const initialState: UiState = {
-  isMobileNavOpen: false
+  isMobileNavOpen: false,
+  menuAnchorEl: null
 };
 
 export const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    setMobileNavOpen: (state, action: PayloadAction<boolean>) => {
-      state.isMobileNavOpen = action.payload;
-    },
     toggleMobileNav: (state) => {
       state.isMobileNavOpen = !state.isMobileNavOpen;
+    },
+    setMenuAnchorEl: (state, action: PayloadAction<HTMLElement | null>) => {
+      state.menuAnchorEl = action.payload;
     }
   }
 });
 
-export const { setMobileNavOpen, toggleMobileNav } = uiSlice.actions;
+export const { toggleMobileNav, setMenuAnchorEl } = uiSlice.actions;
 
 export default uiSlice.reducer;
