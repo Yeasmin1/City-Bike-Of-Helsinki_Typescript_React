@@ -1,37 +1,110 @@
-# Helsinki City Bike Demo App
 
-This a demo application for Helsinki City Bike.
+# 🚴‍♀️City Bike of Helsinki Demo App
+
+This is a demo application for the **Helsinki City Bike** system, featuring live bike station data, multilingual support, and a modern responsive UI.
+
+---
 
 ## Features
 
--  Responsive design, supporting both mobile and Desktop browsers
--  Login with Google, Session storage, Logout
--  Language translation (Fin, Eng)
--  Displays Bike stations in Map and real-time available bikes at the station using Google and DigiTransit API
--  Static pages for buying Tickets
+- Responsive design (mobile + desktop)
+- Google Login with session storage + Logout
+- Language translation (🇫🇮 Finnish, 🇬🇧 English)
+- Interactive Map showing real-time bike availability (Google Maps + DigiTransit API)
+- Static pages for buying Tickets
+
+---
+
+## Live Demo
+
+A live version of the app is available at:  
+👉 [https://city-bike-of-helsinki.firebaseapp.com](https://city-bike-of-helsinki.firebaseapp.com)
+
+---
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+```bash
+npm start          # Run app in development mode
+npm run build      # Create production build in /build
+npm run cypress:open # Open Cypress test runner
+```
 
-Runs the app in the development mode.
+---
 
-### `npm run build`
+## Project Evolution
 
-Builds the app for production to the `build` folder.
+This project has undergone several significant improvements:
 
-### `npm run cypress:open`
+### 1. UI Migration: Bootstrap → MUI (Material-UI)
+- Replaced Bootstrap with modern MUI components.
+- Enhanced responsiveness, accessibility, and design consistency.
 
-Open the cypress window.
+### 2. State Management: React State → Redux Toolkit
+- Global state refactored to use Redux.
+- Improved scalability and maintainability.
+- Redux DevTools support for easier debugging.
 
+### 3. Docker Containerization
+- App is fully containerized using Docker.
+- Simplified setup and deployment using `Dockerfile`.
+- Exposes the app on `http://localhost:8080`.
 
-## To view live demo of This project
+---
 
-A demo of this project is running at 
-https://city-bike-of-helsinki.firebaseapp.com
+## Docker Setup
 
-## To view other Web projects
+### Build and Run the Container
 
-Check <https://github.com/Yeasmin1/Web_projects>
+```bash
+# Build the Docker image
+docker build -t city-bike-of-helsinki-docker-image .
+
+# Run the container on port 8080
+docker run -p 8080:80 city-bike-of-helsinki-docker-image
+```
+
+### Verify It's Running
+
+```bash
+docker ps
+```
+
+You should see a container running based on `city-bike-of-helsinki-docker-image`.
+
+To inspect the container:
+
+```bash
+docker exec -it <container-id or name> sh
+```
+
+---
+
+## 📦 Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/
+│   ├── redux/
+│   ├── pages/
+│   └── ...
+├── public/
+├── Dockerfile
+└── README.md
+```
+
+---
+
+## Want to Know More?
+
+For a **detailed overview of the project goals and logic**, check out the [`main`](https://github.com/your-username/City-Bike-Of-Helsinki_Typescript_React/tree/main) branch
+
+---
+
+## Other Projects
+
+Check out more frontend and full-stack projects:  
+ [https://github.com/Yeasmin1/Web_projects](https://github.com/Yeasmin1/Web_projects)
