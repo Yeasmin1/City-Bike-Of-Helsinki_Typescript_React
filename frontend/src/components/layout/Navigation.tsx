@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation, i18n } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { logout } from '../redux/slices/authSlice';
-import { toggleMobileNav, setMenuAnchorEl } from '../redux/slices/uiSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { logout } from '../../redux/slices/authSlice';
+import { toggleMobileNav, setMenuAnchorEl } from '../../redux/slices/uiSlice';
 import Language from './Language';
 import { styled } from '@mui/material/styles';
 import {

@@ -82,25 +82,9 @@ docker exec -it <container-id or name> sh
 
 ---
 
-## 📦 Project Structure
-
-```
-frontend/
-├── src/
-│   ├── components/
-│   ├── redux/
-│   ├── pages/
-│   └── ...
-├── public/
-├── Dockerfile
-└── README.md
-```
-
----
-
 ## Want to Know More?
 
-For a **detailed overview of the project goals and logic**, check out the [`main`](https://github.com/your-username/City-Bike-Of-Helsinki_Typescript_React/tree/main) branch
+For a **detailed overview of the project goals and logic**, check out the [`main`](https://github.com/Yeasmin1/City-Bike-Of-Helsinki_Typescript_React/tree/main) branch
 
 ---
 

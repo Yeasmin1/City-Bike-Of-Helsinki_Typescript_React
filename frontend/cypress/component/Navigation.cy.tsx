@@ -1,4 +1,4 @@
-import Navigation from '../../src/container/Navigation.tsx';
+import Navigation from '../../src/components/layout/Navigation.tsx';
 import { BrowserRouter} from 'react-router-dom';
 
 interface ProfileType {
