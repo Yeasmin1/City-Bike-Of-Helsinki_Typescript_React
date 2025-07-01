@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation, i18n } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { logout } from '../../redux/slices/authSlice';
-import { toggleMobileNav, setMenuAnchorEl } from '../../redux/slices/uiSlice';
+import { toggleMobileNav, openProfileMenu, closeProfileMenu} from '../../redux/slices/uiSlice';
 import Language from './Language';
 import { styled } from '@mui/material/styles';
 import {
@@ -151,13 +151,13 @@ const TopRightSection = styled(Box)(({ theme }) => ({
 }));
 
 const NavContainer = styled(Container)(({ theme }) => ({
-    maxWidth: theme.breakpoints.values.lg + 'px',
-    width: '100%',
-    margin: '0 auto',
-    padding: theme.spacing(0, 3),
-    [theme.breakpoints.down('sm')]: {
+   maxWidth: theme.breakpoints.values.lg + 'px',
+   width: '100%',
+   margin: '0 auto',
+   padding: theme.spacing(0, 3),
+   [theme.breakpoints.down('sm')]: {
         padding: theme.spacing(0, 2),
-    },
+   },
 }));
 
 const MainNav = styled(Box)(({ theme }) => ({
@@ -170,27 +170,27 @@ const MainNav = styled(Box)(({ theme }) => ({
 
 const Navigation: React.FC = () => {
     const dispatch = useAppDispatch();
-    const loginProfile = useAppSelector(state => state.auth.loginProfile);
-    const mobileOpen = useAppSelector(state => state.ui.isMobileNavOpen);
-    const menuAnchorEl = useAppSelector(state => state.ui.menuAnchorEl);
-    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const { t, i18n } = useTranslation();
+    const loginProfile = useAppSelector(state => state.auth.loginProfile);
+    const mobileOpen = useAppSelector(state => state.ui.isMobileNavOpen);
+    const isMobileNavOpen = useAppSelector(state => state.ui.isMobileNavOpen)
+    const isProfileMenuOpen = useAppSelector(state => state.ui.isProfileMenuOpen)
+    const [anchorEl, setanchorEl] = useState<null | HTMLElement>(null);
 
     const handleDrawerToggle = () => {
         dispatch(toggleMobileNav());
     };
-
-    const handleNavigate = () => {
-        navigate('/loginForm');
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setanchorEl(event.currentTarget);
+        dispatch(openProfileMenu());
     };
-
-    const handleClickLang = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const lang_code = e.currentTarget.value;
-        i18n.changeLanguage(lang_code);
+    const handleMenuClose = () => {
+       setanchorEl(null);
+       dispatch(closeProfileMenu());
     };
-
     const handleLogout = () => {
         googleLogout();
         dispatch(logout());
@@ -198,13 +198,13 @@ const Navigation: React.FC = () => {
         window.sessionStorage.clear();
         navigate('/');
     };
-
-    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        dispatch(setMenuAnchorEl(event.currentTarget));
+    const handleNavigate = () => {
+        navigate('/loginForm');
     };
 
-    const handleMenuClose = () => {
-        dispatch(setMenuAnchorEl(null));
+    const handleClickLang = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const lang_code = e.currentTarget.value;
+        i18n.changeLanguage(lang_code);
     };
 
     const StyledDrawer = styled(Drawer)(({ theme }) => ({
@@ -309,8 +309,8 @@ const Navigation: React.FC = () => {
                                     </Button>
                                     <Menu
                                         id="profile-menu"
-                                        anchorEl={menuAnchorEl}
-                                        open={Boolean(menuAnchorEl)}
+                                        anchorEl={anchorEl}
+                                        open={isProfileMenuOpen}
                                         onClose={handleMenuClose}
                                         anchorOrigin={{
                                             vertical: 'bottom',

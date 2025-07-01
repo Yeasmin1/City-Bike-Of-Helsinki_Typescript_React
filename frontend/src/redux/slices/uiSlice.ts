@@ -1,13 +1,13 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface UiState {
   isMobileNavOpen: boolean;
-  menuAnchorEl: HTMLElement | null;
+  isProfileMenuOpen: boolean;
 }
 
 const initialState: UiState = {
   isMobileNavOpen: false,
-  menuAnchorEl: null
+  isProfileMenuOpen: false,
 };
 
 export const uiSlice = createSlice({
@@ -17,12 +17,15 @@ export const uiSlice = createSlice({
     toggleMobileNav: (state) => {
       state.isMobileNavOpen = !state.isMobileNavOpen;
     },
-    setMenuAnchorEl: (state, action: PayloadAction<HTMLElement | null>) => {
-      state.menuAnchorEl = action.payload;
+    openProfileMenu: (state) => {
+      state.isProfileMenuOpen = true;
+    },
+    closeProfileMenu: (state) => {
+      state.isProfileMenuOpen = false;
     }
   }
 });
 
-export const { toggleMobileNav, setMenuAnchorEl } = uiSlice.actions;
+export const { toggleMobileNav, openProfileMenu, closeProfileMenu } = uiSlice.actions;
 
 export default uiSlice.reducer;
