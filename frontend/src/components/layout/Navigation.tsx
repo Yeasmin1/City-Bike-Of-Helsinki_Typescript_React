@@ -195,7 +195,6 @@ const Navigation: React.FC = () => {
         googleLogout();
         dispatch(logout());
         handleMenuClose();
-        window.sessionStorage.clear();
         navigate('/');
     };
     const handleNavigate = () => {

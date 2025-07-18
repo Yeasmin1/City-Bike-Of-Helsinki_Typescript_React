@@ -228,7 +228,7 @@ const Contact = (props: any) => {
                                         © 2025 CBH. All rights reserved.
                                      </FooterText>
 
-                                </Grid>
+                            </Grid>
                            
                             
                         </Grid>
