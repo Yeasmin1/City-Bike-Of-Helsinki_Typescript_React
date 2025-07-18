@@ -90,16 +90,18 @@ const LoginForm :React.FC<loginProfileInterface>= ({data}) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (username && password) {
-      // Here you would typically handle username/password login
-      // For now, just show how we'd handle it with Redux
       dispatch(setLoading(true));
-      // Example of how you might handle a form submission:
+      // TODO: Implement email/password login API integration
+      // DETAILS: This is a placeholder. Once backend support is available, 
+      // replace this block with a call to the login endpoint and handle success/error states.
+      // For now, email/password login is not functional. Only Google login is supported.
+      // Example of how might handle a form submission:
       // submitLoginForm({ username, password })
       //   .then(response => dispatch(setLoginProfile(response)))
       //   .catch(error => dispatch(setError(error.message)))
       //   .finally(() => dispatch(setLoading(false)));
       
-      dispatch(setError('Username/password login not implemented yet'));
+      dispatch(setError('Email/password login is not available yet. Please use Google login.'));
       dispatch(setLoading(false));
     }
   };
