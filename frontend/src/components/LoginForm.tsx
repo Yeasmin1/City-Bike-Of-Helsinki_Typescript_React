@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import {useGoogleLogin } from '@react-oauth/google';
+import React, { useEffect } from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { 
-  setLoginProfile, 
   setLoading, 
   setError, 
   setUsername, 
@@ -13,6 +11,7 @@ import {
   setTemporaryUser,
   resetForm 
 } from '../redux/slices/authSlice';
+import { handleGoogleLogin } from '../redux/thunks/authThunk';
 import { styled } from '@mui/material/styles';
 import { 
     Box, 
@@ -22,7 +21,6 @@ import {
     TextField, 
     Button, 
     Divider,
-    IconButton,
     Alert,
     CircularProgress
 } from '@mui/material';
@@ -115,37 +113,11 @@ const LoginForm :React.FC<loginProfileInterface>= ({data}) => {
     onError: (error) => dispatch(setError('Login Failed: ' + error))
   });
 
-  /*
-  Handles Google authentication flow and cleanup.
-  1. Gets profile information when temporaryUser exists
-  2. Cleans up form state on unmount
-  */
   useEffect(() => {
     // Handle Google authentication
     if (temporaryUser) {
-      dispatch(setLoading(true));
-      axios
-        .get(`https://www.googleapis.com/oauth2/v1/userinfo`, {
-          headers: {
-            Authorization: `Bearer ${temporaryUser.access_token}`,
-            Accept: 'application/json'
-          }
-        })
-        .then((res) => {
-          dispatch(setLoginProfile(res.data));
-          dispatch(resetForm());
-          navigate("/");
-        })
-        .catch((err) => {
-          dispatch(setError(err.message));
-          console.log(err);
-        })
-        .finally(() => {
-          dispatch(setLoading(false));
-          dispatch(setTemporaryUser(null));
-        });
+      void dispatch(handleGoogleLogin(navigate));
     }
-
     // Cleanup function
     return () => {
       dispatch(resetForm());
@@ -153,7 +125,6 @@ const LoginForm :React.FC<loginProfileInterface>= ({data}) => {
     };
   }, [temporaryUser, dispatch, navigate]);
   
-
 
 return (
     <LightSection>
